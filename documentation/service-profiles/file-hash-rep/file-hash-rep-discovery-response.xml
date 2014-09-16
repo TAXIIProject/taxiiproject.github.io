@@ -1,0 +1,17 @@
+<taxii_11:Discovery_Response xmlns:taxii="http://taxii.mitre.org/messages/taxii_xml_binding-1" xmlns:taxii_11="http://taxii.mitre.org/messages/taxii_xml_binding-1.1" xmlns:tdq="http://taxii.mitre.org/query/taxii_default_query-1" message_id="25984" in_response_to="1">
+  <taxii_11:Service_Instance service_type="POLL" service_version="urn:taxii.mitre.org:services:1.1" available="true">
+    <taxii_11:Protocol_Binding>urn:taxii.mitre.org:protocol:http:1.0</taxii_11:Protocol_Binding>
+    <taxii_11:Address>http://example.com/poll-service/</taxii_11:Address>
+    <taxii_11:Message_Binding>urn:taxii.mitre.org:message:xml:1.1</taxii_11:Message_Binding>
+    <taxii_11:Supported_Query format_id="urn:taxii.mitre.org:query:default:1.0">
+      <tdq:Default_Query_Info>
+        <tdq:Targeting_Expression_Info targeting_expression_id="urn:stix.mitre.org:xml:1.1.1">
+          <tdq:Preferred_Scope>**/Simple_Hash_Value</tdq:Preferred_Scope>
+        </tdq:Targeting_Expression_Info>
+        <tdq:Capability_Module>urn:taxii.mitre.org:query:capability:core-1</tdq:Capability_Module>
+      </tdq:Default_Query_Info>
+    </taxii_11:Supported_Query>
+    <taxii_11:Message>This is a File Hash Reputation Poll Service</taxii_11:Message>
+  </taxii_11:Service_Instance>
+</taxii_11:Discovery_Response>
+

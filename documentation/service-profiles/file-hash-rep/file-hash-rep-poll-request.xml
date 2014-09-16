@@ -1,0 +1,20 @@
+<taxii_11:Poll_Request xmlns:taxii="http://taxii.mitre.org/messages/taxii_xml_binding-1" xmlns:taxii_11="http://taxii.mitre.org/messages/taxii_xml_binding-1.1" xmlns:tdq="http://taxii.mitre.org/query/taxii_default_query-1" message_id="11670" collection_name="file_hash_reputation">
+  <taxii_11:Poll_Parameters allow_asynch="false">
+    <taxii_11:Response_Type>FULL</taxii_11:Response_Type>
+    <taxii_11:Content_Binding binding_id="urn:stix.mitre.org:xml:1.1.1"/>
+    <taxii_11:Query format_id="urn:taxii.mitre.org:query:default:1.0">
+      <tdq:Default_Query targeting_expression_id="urn:stix.mitre.org:xml:1.1.1">
+        <tdq:Criteria operator="AND">
+          <tdq:Criterion negate="false">
+            <tdq:Target>**/Simple_Hash_Value</tdq:Target>
+            <tdq:Test capability_id="urn:taxii.mitre.org:query:capability:core-1" relationship="equals">
+              <tdq:Parameter name="match_type">case_sensitive_string</tdq:Parameter>
+              <tdq:Parameter name="value">e1d432e5f316bef78bfdf5a008837577</tdq:Parameter>
+            </tdq:Test>
+          </tdq:Criterion>
+        </tdq:Criteria>
+      </tdq:Default_Query>
+    </taxii_11:Query>
+  </taxii_11:Poll_Parameters>
+</taxii_11:Poll_Request>
+

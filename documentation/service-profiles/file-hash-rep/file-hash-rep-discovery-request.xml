@@ -1,0 +1,3 @@
+<taxii_11:Discovery_Request
+        xmlns:taxii_11="http://taxii.mitre.org/messages/taxii_xml_binding-1.1"
+        message_id="1"/>

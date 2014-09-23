@@ -7,21 +7,20 @@ The following code requires libtaxii v1.1.103 or greater installed.
 For installation instructions, please refer to http://libtaxii.readthedocs.org/en/latest/installation.html
 '''
 
-import libtaxii as t
 import libtaxii.taxii_default_query as tdq
 import libtaxii.messages_11 as tm11
 from libtaxii.common import generate_message_id
 from libtaxii.constants import *
 
-file_hash = 'e1d432e5f316bef78bfdf5a008837577'
+value = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
 target = '**/Simple_Hash_Value'
 
 def main():
     # Create the test portion of the query
     my_test = tdq.Test(capability_id = CM_CORE,
                        relationship = R_EQUALS,
-                       parameters = {P_VALUE: file_hash,
-                                     P_MATCH_TYPE: 'case_sensitive_string'}
+                       parameters = {P_VALUE: value,
+                                     P_MATCH_TYPE: 'case_insensitive_string'}
                        )
 
     #Put the test into a Criterion

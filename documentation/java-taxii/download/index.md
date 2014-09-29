@@ -1,6 +1,6 @@
 ---
 layout: flat
-title: java-taxii Getting Started
+title: java-taxii | Download
 ---
 
 Download the latest version of java-taxii here.

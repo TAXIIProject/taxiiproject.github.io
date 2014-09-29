@@ -3,15 +3,17 @@ layout: flat
 title: java-taxii
 ---
 
-This is the documentation home for java-taxii. On this page you can find 
-the API reference, download java-taxii, and read some getting started materials.
+Java library for <a href="http://taxii.mitre.org" target="_blank">TAXII</a>.
+
+This library provides:
+
+* An object representation of TAXII Messages using <a href="http://jaxb.java.net" target="_blank">JAXB</a>.
+* Serialization, deserialization, and validation of TAXII Messages.
+* An HTTP/HTTPS TAXII Client using <a href="http://hc.apache.org/index.html" target="_blank">Apache's HTTP Components</a>.        
 
 ### Contents
 
-* [Download java-taxii](download)
 * [Getting Started](getting-started)
-* [java-taxii's online javadoc](javadoc)
-* [java-taxii javadoc download](java-taxii-javadoc.zip)
-
-
-
+* [Download java-taxii](download)
+* [Javadoc](javadoc)
+* [Download javadoc](java-taxii-javadoc.zip)

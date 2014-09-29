@@ -16,7 +16,7 @@ title: Documentation
     <div class="well">
       <h4><a href="java-taxii">java-taxii</a></h4>
 
-      <p>Documentation for java-taxii</p>
+      <p>A Java library for working with TAXII messages and interacting with TAXII services.</p>
 
       <a class="btn btn-primary" href="java-taxii">Go</a>
     </div>

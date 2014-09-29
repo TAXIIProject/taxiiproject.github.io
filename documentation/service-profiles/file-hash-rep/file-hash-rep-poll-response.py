@@ -13,15 +13,15 @@ from libtaxii.constants import *
 
 from stix.core import STIXPackage, STIXHeader
 from stix.common import InformationSource, Identity
-from stix.common.vocabs import VocabString
 from stix.indicator import Indicator
+from stix.ttp import TTP
 from cybox.objects.file_object import File
 
 
 def main():
 
     file_hash = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
-    badness = 0 # Value between 0-100, or None if the badness is unknown
+    confidence = 'Low'  # High, Medium, Low, None, or Unknown
 
     sp = STIXPackage()
     sp.stix_header = STIXHeader()
@@ -29,24 +29,25 @@ def main():
     sp.stix_header.add_package_intent("Indicators - Malware Artifacts")
     sp.stix_header.information_source = InformationSource()
     sp.stix_header.information_source.identity = Identity()
-    sp.stix_header.information_source.identity.name = "TAXII Service Profile: File Hash Reputation"
+    sp.stix_header.information_source.identity.name = "Mark's Malware Metadata Mart"
 
     file_obj = File()
     file_obj.add_hash(file_hash)
+    file_obj.hashes[0].type_.condition = "Equals"
     file_obj.hashes[0].simple_hash_value.condition = "Equals"
 
     indicator = Indicator(title="File Hash Reputation")
     indicator.indicator_type = "File Hash Reputation"
     indicator.add_observable(file_obj)
-    if badness is None:
-        indicator.likely_impact = "Unknown"
-    else:
-        vs = VocabString(str(badness))
-        vs.vocab_name = 'percentage'
-        vs.vocab_reference = "http://en.wikipedia.org/wiki/Percentage"
-        indicator.likely_impact = vs
+
+    ttp = TTP()
+    ttp.title = "Malicious File"
+
+    indicator.add_indicated_ttp(TTP(idref=ttp.id_))
+    indicator.indicated_ttps[0].confidence = confidence
 
     sp.add_indicator(indicator)
+    sp.add_ttp(ttp)
 
     stix_xml = sp.to_xml()
 

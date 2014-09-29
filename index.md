@@ -1,7 +1,7 @@
 ---
 title: TAXII Project Documentation
 layout: flat
-tagline: User and developer documentation for TAXII
+tagline: User and Developer documentation for TAXII
 no_in_page_title: true
 ---
 
@@ -11,7 +11,7 @@ no_in_page_title: true
   <h2><strong>Start here if you're new to TAXII!</strong></h2>
   <p>Regardless of whether you're an analyst, developer, or manager, we have tutorials, walkthroughs, and exercises to help you become familiar
   with TAXII.</p>
-  <p><a class="btn btn-primary btn-lg" role="button" href="/getting-started">Get Started</a></p>
+  <p><a class="btn btn-primary btn-lg" role="button" href="/getting-started">Get Started »</a></p>
 </div>
 
 <div class="row">
@@ -20,12 +20,12 @@ no_in_page_title: true
     <p>Now that you have an idea of what TAXII is and how it can be used,
     learn about tools that support TAXII and other in-depth
     documentation.</p>
-    <p><a class="btn btn-primary btn-lg" role="button" href="/documentation">Documentation</a></p>
+    <p><a class="btn btn-primary btn-lg" role="button" href="/documentation">Documentation »</a></p>
   </div>
   <div class="col-md-6">
     <h2>Service Profiles</h2>
     <p>You can also see examples of common design patterns in TAXII.</p>
-    <p><a class="btn btn-primary btn-lg" role="button" href="/documentation/service-profiles">Service Profiles</a></p>
+    <p><a class="btn btn-primary btn-lg" role="button" href="/service-profiles">Service Profiles »</a></p>
   </div>
 </div>
 

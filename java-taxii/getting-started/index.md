@@ -53,3 +53,70 @@ java-taxii uses the Gradle build tool. Below is an example of importing the depe
         compile 'org.apache.httpcomponents:fluent-hc:4.3.5'    
         compile files(lib/java-taxii.jar')
     }
+
+### Sample Usage
+
+#### Object Creation
+The simplest usage of the library is to create TAXII message objects
+
+    import org.mitre.taxii.messages.xml11.ObjectFactory;
+    import org.mitre.taxii.messages.xml11.DiscoveryRequest;
+    import org.mitre.taxii.messages.xml11.MessageHelper;
+
+    ...
+    ObjectFactory factory = new ObjectFactory();
+    DiscoveryRequest request = factory.createDiscoveryRequest().withMessageId(MessageHelper.generateMessageId());
+
+or 
+
+    DiscoveryRequest dr = new DiscoveryRequest().withMessageId(MessageHelper.generateMessageId());
+
+JAXB convention recommends the use of the ObjectFactory to create instances of the TAXII objects but it is not necessary.
+
+#### Message Marshaling
+Once a TAXII message object is created, the next step is to render it as XML. To do this, you need a JAXB context that
+understands how to serialize or marshal the object to XML. This context is provided by a TaxiiXml object which is created
+using a TaxiiXmlFactory. There is quite a bit of configuration work done by the TaxiiXmlFactory behind the scenes, so it should
+always be used to create a properly configured TaxiiXml.
+
+    import org.mitre.taxii.messages.xml11.TaxiiXmlFactory;
+    import org.mitre.taxii.messages.xml11.TaxiiXml;
+    import org.mitre.taxii.messages.xml11.ObjectFactory;
+    import org.mitre.taxii.messages.xml11.DiscoveryRequest;
+    import org.mitre.taxii.messages.xml11.MessageHelper;
+    ...
+
+    TaxiiXmlFactory txf = new TaxiiXmlFactory();
+    TaxiiXml taxiiXml = txf.createTaxiiXml();
+
+    ObjectFactory of = new ObjectFactory();
+    DiscoveryRequest dr = of.createDiscoveryRequest().withMessageId(MessageHelper.generateMessageId());
+
+    String xmlString = taxiiXml.marshalToString(dr, true);
+
+#### Message Unmarshaling
+To parse an XML string into an object representation is also done using a TaxiiXml object.
+
+    import javax.xml.bind.Unmarshaller;
+    import org.mitre.taxii.messages.xml11.TaxiiXmlFactory;
+    import org.mitre.taxii.messages.xml11.TaxiiXml;
+    ...
+
+    String xml = "<Status_Message status_type='SUCCESS' in_response_to='urn:uuid:8fef148a-b186-45a0-a2da-9915daf621b1' "
+                 +" message_id='SM02' xmlns='http://taxii.mitre.org/messages/taxii_xml_binding-1.1'/>";
+
+    TaxiiXmlFactory txf = new TaxiiXmlFactory();
+    TaxiiXml taxiiXml = txf.createTaxiiXml();
+
+    Unmarshaller unmarshaller = taxiiXml.getJaxbContext().createUnmarshaller();
+
+    StatusMessage message = (StatusMessage) unmarshaller.unmarshal(new StringReader(xml));
+
+Notice that you need to know the type of the item being parsed beforehand. The Unmarshaller will return an Object which 
+must be cast to the expected type.
+
+#### Validation
+Creating and unmarshaling TAXII items does not guarantee that they are schema or business rule valid. You could create an
+object and not populate member objects that the schema requires. For example, a Status Message with status type of "PENDING"
+is required to have a Status Detail with name "ESTIMATED_WAIT"; further, the value of the Status Detail must be a positive
+integer. Those interrelations and constraints are not expressed in the schema but as Schematron rules.

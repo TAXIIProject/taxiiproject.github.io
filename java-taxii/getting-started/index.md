@@ -120,3 +120,28 @@ Creating and unmarshaling TAXII items does not guarantee that they are schema or
 object and not populate member objects that the schema requires. For example, a Status Message with status type of "PENDING"
 is required to have a Status Detail with name "ESTIMATED_WAIT"; further, the value of the Status Detail must be a positive
 integer. Those interrelations and constraints are not expressed in the schema but as Schematron rules.
+
+Java-taxii provides a few different ways to validate TAXII items. TaxiiXml provides two methods to do validation: validateFast() and 
+validateAll(). ValidateFast() will return after the first error is encountered while validateAll() will build a list of validation errors.
+Each method also has a boolean parameter "checkSpecConformance" which performs specification conformance checks beyond what XML schema supports.
+
+    ObjectFactory of = new ObjectFactory(); // JAXB factory for TAXII 
+    TaxiiXmlFactory txf = new TaxiiXmlFactory(); // Create a factory with the default configuration.
+    TaxiiXml taxiiXml = txf.createTaxiiXml(); // get a properly configured TaxiiXml
+  
+    DiscoveryMessage dm = of.createDiscoveryMessage()
+                            .withMessageId(MessageHelper.generateMessageId());
+
+    try {
+        Validation results = taxiiXml.validateFast(dm, true); // Validate, failing on first error encountered, and perfoming Schematron validation.
+        if (results.hasWarnings()) {
+            System.out.print("Validation warnings: ");
+            System.out.println(results.getAllWarnings());
+        }
+    } catch (SAXParseException e) {
+       System.err.print("Validation error: ");
+       System.err.println(Validation.formatException(e));
+    } catch (SAXException e) {
+        System.err.print("Validation error: ");
+           e.printStackTrace();
+    }

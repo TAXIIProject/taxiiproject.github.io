@@ -55,6 +55,9 @@ java-taxii uses the Gradle build tool. Below is an example of importing the depe
     }
 
 ### Sample Usage
+It is strongly recommended that you examine the unit test source files for examples of
+using the library. There are many tests for object creation of various complexity, 
+tests demonstrating validation, and tests of the client.
 
 #### Object Creation
 The simplest usage of the library is to create TAXII message objects

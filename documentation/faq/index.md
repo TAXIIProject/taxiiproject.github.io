@@ -1,10 +1,9 @@
 ---
 layout: flat
-title: TAXII Devnotes
-summary: TAXII Devnotes are implementation questions and answers.
+title: TAXII FAQ
 ---
 
-TAXII Devnotes are questions and answers to questions developers have asked about implementing the TAXII Specifications.
+TAXII FAQ are questions and answers to questions that have been asked about the TAXII Specifications.
 
 New questions, comments, or clarifications can be posted to the TAXII Discussion List or sent to taxii@mitre.org.
 

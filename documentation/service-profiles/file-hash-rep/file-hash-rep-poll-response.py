@@ -15,36 +15,54 @@ from stix.core import STIXPackage, STIXHeader
 from stix.common import InformationSource, Identity
 from stix.indicator import Indicator
 from stix.ttp import TTP
+from cybox.common import Hash
 from cybox.objects.file_object import File
 
 
 def main():
 
-    file_hash = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
-    confidence = 'Low'  # High, Medium, Low, None, or Unknown
+    # "hardcoded" values
+    ns = "urn:taxii.mitre.org:service_profile:file_hash_reputation"
+    ns_alias = "file_hash_rep"
+
+    # Fake database values
+    md5_hash = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+    object_id = 'File-927731f2-cc2c-421c-a40e-dc6f4a6c75a4'
+    object_timestamp = '2014-09-29T14:32:00.000000'
+    observable_id = 'Observable-45e3e64c-8438-441e-bc49-51e417466e29'
+    observable_timestamp = '2014-09-29T14:32:00.000000'
+    confidence = 'High'
+    confidence_timestamp = '2014-09-29T14:32:00.000000'
+    indicator_id = 'Indicator-54baefc1-4742-4b40-ba83-afd51115015b'
+    indicator_timestamp = '2014-09-29T14:32:00.000000'
 
     sp = STIXPackage()
     sp.stix_header = STIXHeader()
-    sp.stix_header.title = "File Hash Reputation for %s" % file_hash
+    sp.stix_header.title = "File Hash Reputation for %s" % md5_hash
     sp.stix_header.add_package_intent("Indicators - Malware Artifacts")
     sp.stix_header.information_source = InformationSource()
     sp.stix_header.information_source.identity = Identity()
     sp.stix_header.information_source.identity.name = "Mark's Malware Metadata Mart"
 
-    file_obj = File()
-    file_obj.add_hash(file_hash)
+    file_hash = Hash(hash_value=md5_hash, type_='MD5', exact=True)
+
+    file_obj = File(id_=(ns_alias + object_id), timestamp=object_timestamp)
+    file_obj.add_hash(md5_hash)
     file_obj.hashes[0].type_.condition = "Equals"
     file_obj.hashes[0].simple_hash_value.condition = "Equals"
 
-    indicator = Indicator(title="File Hash Reputation")
+    indicator = Indicator(title="File Hash Reputation", id_=(ns_alias + indicator_id), timestamp=indicator_timestamp)
     indicator.indicator_type = "File Hash Reputation"
     indicator.add_observable(file_obj)
+    indicator.observables[0].id_ = ns_alias + observable_id
+    indicator.observables[0].timestamp = observable_timestamp
 
     ttp = TTP()
     ttp.title = "Malicious File"
 
     indicator.add_indicated_ttp(TTP(idref=ttp.id_))
     indicator.indicated_ttps[0].confidence = confidence
+    indicator.indicated_ttps[0].confidence.timestamp = confidence_timestamp
 
     sp.add_indicator(indicator)
     sp.add_ttp(ttp)

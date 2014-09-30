@@ -33,7 +33,6 @@ These are the requirements to implement a File Hash Reputation Service as descri
 
  1. File Hash (The MD5 hash of the file)
  1. Confidence (The confidence that the file is malicious - High, Medium, Low, None, or Unknown)
- 1. TBD - ID/Timestamp/namespace for STIX_Package, Indicator, Observable, Object (This is an open question)
 
 4. Use STIX as the Targeting Expression Vocabulary
 5. Give yourself a name. This example uses "Mark's Malware Metadata Mart"
@@ -43,12 +42,89 @@ a SQL Table that looks like the table below. The table is named :code:`file_hash
 has an index on md5_hash.
 
 
-| md5_hash                             | Confidence |
+| md5_hash                             | confidence |
 |--------------------------------------|------------|
 | AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA     | Low        |
 | BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB     | Medium     |
 | CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC     | High       |
 
+
+## STIXification
+When using STIX, there are factors that should be considered beyond just the data that will be represented. These 
+factors include [STIX Versioning](http://stixproject.github.io/documentation/concepts/versioning/),and mapping, and it may make
+sense for implementers to "STIXify" their database. This section describes the "STIXification" of the above database.
+The STIXified version of :code:`file_hash_reputation` is :code:`file_hash_reputation_stixified`
+
+### STIXification - Versioning
+In addition to MD5 Hash and Confidence, an implementation needs to keep track of ID and timestamp for the Indicator, 
+Observable, and Object constructs
+
+namespace = "urn:taxii.mitre.org:service_profile:file_hash_reputation"
+namespace alias = "file_hash_rep"
+
+The table below describes modeling md5_hash and confidence in a database structure more closely aligned with STIX.
+
+
+| md5_hash | object_id (local part)                    | object_timestamp           | observable_id (local part)                      | observable_timestamp       | confidence | confidence_timestamp        | indicator_id (local part)                       | indicator_timestamp        | 
+|----------|-------------------------------------------|----------------------------|-------------------------------------------------|----------------------------|------------|-----------------------------|-------------------------------------------------|----------------------------| 
+| AAAA     | File-927731f2-cc2c-421c-a40e-dc6f4a6c75a4 | 2014-09-29T14:32:00.000000 | Observable-45e3e64c-8438-441e-bc49-51e417466e29 | 2014-09-29T14:32:00.000000 |   High     | 2014-09-29T14:32:00.000000  | Indicator-54baefc1-4742-4b40-ba83-afd51115015b  | 2014-09-29T14:32:00.000000 | 
+
+
+Some state-keeping functionality has to exist. Specifically:
+
+#### Create Hash/Confidence (Pseudocode)
+```python
+row = file_hash_reputation_stixified.new_row(
+        md5_hash = <md5_hash>,
+        object_id = new_object_id(),
+        object_timestamp = date.now(),
+        observable_id = new_observable_id(),
+        observable_timestamp = date.now(),
+        confidence = <Confidence>, #High, Medium, Low, None, or Unknown
+        confidence_timestamp = date.now(),
+        indicator_id = new_indicator_id(),
+        indicator_timestamp = date.now())
+row.save()
+```
+
+#### Get Hash/Confidence (Pseudocode)
+```python
+row = file_hash_reputation_stixified.get_row(md5_hash=<md5_hash>)
+```
+
+#### Update Hash/Confidence (Pseudocode)
+```python
+row = file_hash_reputation_stixified.get_row(md5_hash=<md5_hash>)
+row.confidence = <Confidence>
+indicator.timestamp = date.now() # Updating the confidence is a revision to the indicator
+row.save()
+```
+
+#### Delete Hash/Confidence (Pseudocode)
+```python
+row = file_hash_reputation_stixified.get_row(md5_hash=<md5_hash>)
+row.delete()
+```
+
+### STIXification - Mapping
+In order to represent database entries as STIX, a mapping from the database to the desired STIX construct must exist.
+
+
+| database field       | STIX Construct                                                       |
+|----------------------|----------------------------------------------------------------------|
+| md5_hash             | Indicator\Observable\Object\Properties\Hashes\Hash\Simple_Hash_Value |
+| object_id            | Indicator\Observable\Object\@id                                      |
+| object_timestamp     | Indicator\Observable\Object\@timestamp                               |
+| observable_id        | Indicator\Observable\@id                                             |
+| observable_timestamp | Indicator\Observable\@timestamp                                      |
+| confidence           | Indicator\Indicated_TTP\Confidence\Value                             |
+| confidence_timestamp | Indicator\Indicated_TTP\Confidence\@timestamp                        |
+| indicator_id         | Indicator\@id                                                        |
+| indicator_timestamp  | Indicator\@timestamp                                                 |
+
+Or, as Python code to turn the database row into STIX:
+```python
+```
 
 ## Workflow
 The workflow for this Service Profile is:

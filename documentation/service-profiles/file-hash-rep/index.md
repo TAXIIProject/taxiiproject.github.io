@@ -12,12 +12,12 @@ A File Hash Reputation service allows requesters to specify a File Hash and rece
 that File Hash indicates a malicious file - or, how confident information provider is that the file identified by that 
 File Hash is malicious. This example
 uses TAXII Query to convey the request for information based on a File Hash, and uses STIX to represent the
-result. All code examples use [libtaxii](https://pypi.python.org/pypi/libtaxii/) and 
-[python-stix](https://pypi.python.org/pypi/stix/), two publicly available libraries.
+result. All code examples use [libtaxii](/developers/libtaxii/) and 
+[python-stix](http://stix.readthedocs.org/en/latest/), two publicly available libraries.
 
 This TAXII Service Profile demonstrates the production and consumption of TAXII Messages, as well as the 
-creation of STIX content. This TAXII Service Profile does not demonstrate transmitting TAXII Messages across 
- a network (that documentation can be found [here](TBD)).
+creation and "use" (big airquotes here - you'll see why at the end) of STIX content. 
+This TAXII Service Profile does not demonstrate transmitting TAXII Messages across a network.
  
 This documentation is from the perspective of the TAXII Server, called "service provider" in this documentation.
 
@@ -25,7 +25,7 @@ This documentation is from the perspective of the TAXII Server, called "service 
 These are the requirements to implement a File Hash Reputation Service as described in this TAXII Service Profile:
 
 1. Implement a Poll Service that supports TAXII Default Query
-1. Have a Data Collection named :code:`file_hash_reputation`
+1. Have a Data Collection named `file_hash_reputation`
 
  1. This Data Collection is a Data Set (as opposed to a Data Feed)
 
@@ -38,7 +38,7 @@ These are the requirements to implement a File Hash Reputation Service as descri
 5. Give yourself a name. This example uses "Mark's Malware Metadata Mart"
 
 For the sake of example, we'll assume that the table containing File Hash and Confidence is
-a SQL Table that looks like the table below. The table is named :code:`file_hash_reputation` and 
+a SQL Table that looks like the table below. The table is named `file_hash_reputation` and 
 has an index on md5_hash.
 
 
@@ -51,80 +51,62 @@ has an index on md5_hash.
 
 ## STIXification
 When using STIX, there are factors that should be considered beyond just the data that will be represented. These 
-factors include [STIX Versioning](http://stixproject.github.io/documentation/concepts/versioning/),and mapping, and it may make
-sense for implementers to "STIXify" their database. This section describes the "STIXification" of the above database.
-The STIXified version of :code:`file_hash_reputation` is :code:`file_hash_reputation_stixified`
-
-### STIXification - Versioning
-In addition to MD5 Hash and Confidence, an implementation needs to keep track of ID and timestamp for the Indicator, 
-Observable, and Object constructs
-
-namespace = "urn:taxii.mitre.org:service_profile:file_hash_reputation"
-namespace alias = "file_hash_rep"
-
-The table below describes modeling md5_hash and confidence in a database structure more closely aligned with STIX.
-
-
-| md5_hash | object_id (local part)                    | object_timestamp           | observable_id (local part)                      | observable_timestamp       | confidence | confidence_timestamp        | indicator_id (local part)                       | indicator_timestamp        | 
-|----------|-------------------------------------------|----------------------------|-------------------------------------------------|----------------------------|------------|-----------------------------|-------------------------------------------------|----------------------------| 
-| AAAA     | File-927731f2-cc2c-421c-a40e-dc6f4a6c75a4 | 2014-09-29T14:32:00.000000 | Observable-45e3e64c-8438-441e-bc49-51e417466e29 | 2014-09-29T14:32:00.000000 |   High     | 2014-09-29T14:32:00.000000  | Indicator-54baefc1-4742-4b40-ba83-afd51115015b  | 2014-09-29T14:32:00.000000 | 
-
-
-Some state-keeping functionality has to exist. Specifically:
-
-#### Create Hash/Confidence (Pseudocode)
-```python
-row = file_hash_reputation_stixified.new_row(
-        md5_hash = <md5_hash>,
-        object_id = new_object_id(),
-        object_timestamp = date.now(),
-        observable_id = new_observable_id(),
-        observable_timestamp = date.now(),
-        confidence = <Confidence>, #High, Medium, Low, None, or Unknown
-        confidence_timestamp = date.now(),
-        indicator_id = new_indicator_id(),
-        indicator_timestamp = date.now())
-row.save()
-```
-
-#### Get Hash/Confidence (Pseudocode)
-```python
-row = file_hash_reputation_stixified.get_row(md5_hash=<md5_hash>)
-```
-
-#### Update Hash/Confidence (Pseudocode)
-```python
-row = file_hash_reputation_stixified.get_row(md5_hash=<md5_hash>)
-row.confidence = <Confidence>
-indicator.timestamp = date.now() # Updating the confidence is a revision to the indicator
-row.save()
-```
-
-#### Delete Hash/Confidence (Pseudocode)
-```python
-row = file_hash_reputation_stixified.get_row(md5_hash=<md5_hash>)
-row.delete()
-```
+factors include mapping your data to STIX, 
+[STIX Versioning](http://stixproject.github.io/documentation/concepts/versioning/),and 
+possibly other aspects as well. This section describes the "STIXification" of the above database. It is important to 
+note that the STIXification step requires some knowledge of STIX. 
+The STIXified version of `file_hash_reputation` is `file_hash_reputation_stixified`
 
 ### STIXification - Mapping
-In order to represent database entries as STIX, a mapping from the database to the desired STIX construct must exist.
+An important step is mapping source information to STIX. There are some good resources to assist in this mapping, 
+including the [STIX Documentation] (http://stixproject.github.io/documentation/); 
+the idioms may be of particular interest here. Without getting into
+the nitty gritty of the mapping, a few high-level decisions are important to call out:
+
+
+* File Hash will be represented as a File Object observable in an Indicator
+* The Indicator will have an Indicated TTP
+* The Indicated TTP will indicate "Malicious File"
+* A Confidence relationship between the Indicator and the Indicated TTP will assert how confident Mark's Malware
+Metadata Mart is that the file is malicious
+ * The confidence value will be one of High, Medium Low, None, or Unknown.
+
+### STIXification - Versioning
+In addition to MD5 Hash and Confidence, an implementation needs to keep track of certain versioning information. 
+This information includes ID and timestamp for the Indicator and
+TTP constructs; the ID for the Observable, and Object constructs; and the timestamp for the confidence assertion.
+
+For this example File Hash Reputation implementation, there are certain values that can be "hard coded". Those values are:
+
+* id namespace = "urn:example.com:marks_malware_metadata_mart"
+* id namespace alias = "m4"
+* TTP ID: `ttp-d539bb85-9363-4814-83c8-fa9975045686`
+* TTP Timestamp: `2014-09-30T15:56:27.000000+00:00`
+
+Other values will be different for each file hash. Those values are described in the following table:
+
+| md5_hash                             | object_id (local part)                    | observable_id (local part)                      |  confidence | confidence_timestamp        | indicator_id (local part)                       | indicator_timestamp        | 
+|--------------------------------------|-------------------------------------------|-------------------------------------------------|-------------|-----------------------------|-------------------------------------------------|----------------------------| 
+| AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA     | File-927731f2-cc2c-421c-a40e-dc6f4a6c75a4 | Observable-45e3e64c-8438-441e-bc49-51e417466e29 |    High     | 2014-09-29T14:32:00.000000  | Indicator-54baefc1-4742-4b40-ba83-afd51115015b  | 2014-09-29T14:32:00.000000 | 
+
+### STIXification - Conclusion
+A tabular view of the mapping decisions: 
 
 
 | database field       | STIX Construct                                                       |
 |----------------------|----------------------------------------------------------------------|
 | md5_hash             | Indicator\Observable\Object\Properties\Hashes\Hash\Simple_Hash_Value |
 | object_id            | Indicator\Observable\Object\@id                                      |
-| object_timestamp     | Indicator\Observable\Object\@timestamp                               |
 | observable_id        | Indicator\Observable\@id                                             |
-| observable_timestamp | Indicator\Observable\@timestamp                                      |
 | confidence           | Indicator\Indicated_TTP\Confidence\Value                             |
 | confidence_timestamp | Indicator\Indicated_TTP\Confidence\@timestamp                        |
 | indicator_id         | Indicator\@id                                                        |
 | indicator_timestamp  | Indicator\@timestamp                                                 |
 
-Or, as Python code to turn the database row into STIX:
-```python
-```
+
+Massaging the database into a STIXified version will help greatly with future steps. One thing that should be
+noted is that the `file_hash_reputation_stixified` database table only supports the File Hash Reputation use case. 
+Supporting additional use cases would likely result in a refactor/rearchitecture of the database.
 
 ## Workflow
 The workflow for this Service Profile is:
@@ -298,12 +280,17 @@ print poll_request.to_xml(pretty_print = True)
 ### <a name="3"></a>Step 3 - Inbound Mapping
 The inbound mapping step is specific to each implementation's back end, requirements, and
 other factors. While this TAXII Service Profile describes an inbound mapping for the database
-table described above, implementers will likely make different choices based on factors
+table already described, real world implementers may make different choices based on factors
 specific to their use case.
 
-The **\*\*/SimpleHash** query is mapped to the database column **md5_hash**. As a result
-The TAXII Query from the above Poll Request can be mapped into the following SQL
-Query: :code:`select md5_hash, confidence from file_hash_reputation where md5_hash = '<value>'`
+As described before, the md5_hash column was mapped to the Simple_Hash_Value STIX field.
+Therefore, the targeting expression of **\*\*/Simple_Hash_Value** is mapped to the database column **md5_hash**. 
+Other service providers wishing to provide query capabilities on other hash types (e.g., SHA-1), 
+could map **\*\*Simple_Hash_Value** to other database fields that support those other hash types; or they could
+rename md5_hash to `hash_value` and add a `hash_type` column to the database. 
+
+As a result the TAXII Query from the above Poll Request can be mapped into the following SQL
+Query: `select * from file_hash_reputation_stixified where md5_hash = '<value>'`
 (Recall that the equals operator in SQL is case insensitive).
 
 One important thing to note is that the inbound mapping is not a dynamic, or "runtime" operation. Instead,
@@ -313,31 +300,29 @@ may support more complex operations.
 
 ### <a name="4"></a>Step 4 - Database Query
 The inbound mapping is applied to the received TAXII Query, resulting in this SQL Statement:
-:code:`select md5_hash, confidence from file_hash_reputation where md5_hash = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'`. 
-Note: Use prepared statements!
+`select * from file_hash_reputation where md5_hash = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'`. 
+*Note: Use prepared statements! SQL injection is the most common software weakness and if you don't use prepared statements your code is bad and you should feel bad.*
 
 Upon executing the query against the database, the following SQL result set is returned:
 
-| md5_hash                             | Confidence |
-|--------------------------------------|------------|
-| AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA     | Low        |
+| md5_hash                             | object_id (local part)                    | observable_id (local part)                      |  confidence | confidence_timestamp        | indicator_id (local part)                       | indicator_timestamp        | 
+|--------------------------------------|-------------------------------------------|-------------------------------------------------|-------------|-----------------------------|-------------------------------------------------|----------------------------| 
+| AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA     | File-927731f2-cc2c-421c-a40e-dc6f4a6c75a4 | Observable-45e3e64c-8438-441e-bc49-51e417466e29 |    High     | 2014-09-29T14:32:00.000000  | Indicator-54baefc1-4742-4b40-ba83-afd51115015b  | 2014-09-29T14:32:00.000000 |
 
 
 This result set is used in the Outbound Mapping to generate the STIX response.
 
 ### <a name="5"></a>Step 5 - Outbound Mapping
 
-This is best covered by the (TBD) File Hash Reputation STIX Idiom. A link
-to the idiom will be added when that idiom is created.
+(This step might be overcome by the STIXification section). MARK FOR REMOVAL.
 
 ### <a name="6"></a>Step 6 - Poll Response
 
 #### Poll Response - XML
 The service provider returns a Poll Response, containing the results of the query made in the Poll Request.
 {% highlight xml linenos %}
-<taxii_11:Poll_Response xmlns:taxii="http://taxii.mitre.org/messages/taxii_xml_binding-1"
+<taxii_11:Poll_Response
     xmlns:taxii_11="http://taxii.mitre.org/messages/taxii_xml_binding-1.1"
-    xmlns:tdq="http://taxii.mitre.org/query/taxii_default_query-1" message_id="47393"
     in_response_to="1234" collection_name="file_hash_reputation" more="false" result_part_number="1">
     <taxii_11:Content_Block>
         <taxii_11:Content_Binding binding_id="urn:stix.mitre.org:xml:1.1.1"/>
@@ -346,35 +331,35 @@ The service provider returns a Poll Response, containing the results of the quer
                 xmlns:cybox="http://cybox.mitre.org/cybox-2"
                 xmlns:cyboxVocabs="http://cybox.mitre.org/default_vocabularies-2"
                 xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2"
-                xmlns:example="http://example.com" xmlns:incident="http://stix.mitre.org/Incident-1"
+                xmlns:incident="http://stix.mitre.org/Incident-1"
                 xmlns:indicator="http://stix.mitre.org/Indicator-2"
                 xmlns:ttp="http://stix.mitre.org/TTP-1"
                 xmlns:stixCommon="http://stix.mitre.org/common-1"
                 xmlns:stixVocabs="http://stix.mitre.org/default_vocabularies-1"
                 xmlns:stix="http://stix.mitre.org/stix-1"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns:m4="urn:example.com:marks_malware_metadata_mart"
                 xsi:schemaLocation="  http://cybox.mitre.org/common-2 http://cybox.mitre.org/XMLSchema/common/2.1/cybox_common.xsd  http://cybox.mitre.org/cybox-2 http://cybox.mitre.org/XMLSchema/core/2.1/cybox_core.xsd  http://cybox.mitre.org/default_vocabularies-2 http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd  http://cybox.mitre.org/objects#FileObject-2 http://cybox.mitre.org/XMLSchema/objects/File/2.1/File_Object.xsd  http://stix.mitre.org/Incident-1 http://stix.mitre.org/XMLSchema/incident/1.1.1/incident.xsd  http://stix.mitre.org/Indicator-2 http://stix.mitre.org/XMLSchema/indicator/2.1.1/indicator.xsd  http://stix.mitre.org/TTP-1 http://stix.mitre.org/XMLSchema/ttp/1.1.1/ttp.xsd  http://stix.mitre.org/common-1 http://stix.mitre.org/XMLSchema/common/1.1.1/stix_common.xsd  http://stix.mitre.org/default_vocabularies-1 http://stix.mitre.org/XMLSchema/default_vocabularies/1.1.1/stix_default_vocabularies.xsd  http://stix.mitre.org/stix-1 http://stix.mitre.org/XMLSchema/core/1.1.1/stix_core.xsd"
-                id="example:Package-973962ee-7efb-4661-b07d-c3675713d5c5" version="1.1.1"
-                timestamp="2014-09-24T15:56:47.576000+00:00">
+                id="m4:Package-5d58cbc6-673e-4483-ab00-ec0bc78a2201" version="1.1.1"
+                timestamp="2014-09-30T17:03:53.325000+00:00">
                 <stix:STIX_Header>
-                    <stix:Title>File Hash Reputation for
-                        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</stix:Title>
-                    <stix:Package_Intent xsi:type="stixVocabs:PackageIntentVocab-1.0">Indicators - Malware Artifacts</stix:Package_Intent>
+                    <stix:Title>File Hash Reputation for AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</stix:Title>
+                    <stix:Package_Intent xsi:type="stixVocabs:PackageIntentVocab-1.0"
+                        >Indicators - Malware Artifacts</stix:Package_Intent>
                     <stix:Information_Source>
-                        <stixCommon:Identity
-                            id="example:Identity-1d76320d-9112-4c96-a449-5503fffd7183">
+                        <stixCommon:Identity id="m4:Identity-ae112339-7f78-4ef4-b602-7246fb28229e">
                             <stixCommon:Name>Mark's Malware Metadata Mart</stixCommon:Name>
                         </stixCommon:Identity>
                     </stix:Information_Source>
                 </stix:STIX_Header>
                 <stix:Indicators>
-                    <stix:Indicator id="example:indicator-54baefc1-4742-4b40-ba83-afd51115015b"
-                        timestamp="2014-09-24T15:56:47.577000+00:00"
-                        xsi:type="indicator:IndicatorType" negate="false" version="2.1.1">
+                    <stix:Indicator id="m4:Indicator-54baefc1-4742-4b40-ba83-afd51115015b"
+                        timestamp="2014-09-29T14:32:00" xsi:type="indicator:IndicatorType"
+                        negate="false" version="2.1.1">
                         <indicator:Title>File Hash Reputation</indicator:Title>
                         <indicator:Observable
-                            id="example:Observable-45e3e64c-8438-441e-bc49-51e417466e29">
-                            <cybox:Object id="example:File-927731f2-cc2c-421c-a40e-dc6f4a6c75a4">
+                            id="m4:Observable-45e3e64c-8438-441e-bc49-51e417466e29">
+                            <cybox:Object id="m4:File-8835d32f-14e0-4b32-8c19-85986a56e3ff">
                                 <cybox:Properties xsi:type="FileObj:FileObjectType">
                                     <FileObj:Hashes>
                                         <cyboxCommon:Hash>
@@ -389,19 +374,19 @@ The service provider returns a Poll Response, containing the results of the quer
                             </cybox:Object>
                         </indicator:Observable>
                         <indicator:Indicated_TTP>
-                            <stixCommon:Confidence timestamp="2014-09-24T15:56:47.577000+00:00">
+                            <stixCommon:Confidence timestamp="2014-09-29T14:32:00">
                                 <stixCommon:Value xsi:type="stixVocabs:HighMediumLowVocab-1.0"
-                                    >Low</stixCommon:Value>
+                                    >High</stixCommon:Value>
                             </stixCommon:Confidence>
-                            <stixCommon:TTP idref="example:ttp-f1f2b0ba-e098-4282-9cfe-facfc78e347c"
-                                xsi:type="ttp:TTPType" version="1.1.1"/>
+                            <stixCommon:TTP idref="m4:ttp-d539bb85-9363-4814-83c8-fa9975045686"
+                                timestamp="2014-09-30T15:56:27+00:00" xsi:type="ttp:TTPType"
+                                version="1.1.1"/>
                         </indicator:Indicated_TTP>
                     </stix:Indicator>
                 </stix:Indicators>
                 <stix:TTPs>
-                    <stix:TTP id="example:ttp-f1f2b0ba-e098-4282-9cfe-facfc78e347c"
-                        timestamp="2014-09-24T15:56:47.577000+00:00" xsi:type="ttp:TTPType"
-                        version="1.1.1">
+                    <stix:TTP id="m4:ttp-d539bb85-9363-4814-83c8-fa9975045686"
+                        timestamp="2014-09-30T15:56:27+00:00" xsi:type="ttp:TTPType" version="1.1.1">
                         <ttp:Title>Malicious File</ttp:Title>
                     </stix:TTP>
                 </stix:TTPs>
@@ -423,33 +408,66 @@ from stix.core import STIXPackage, STIXHeader
 from stix.common import InformationSource, Identity
 from stix.indicator import Indicator
 from stix.ttp import TTP
+from stix.utils import set_id_namespace as stix_sin
+from cybox.common import Hash
 from cybox.objects.file_object import File
+from cybox.utils import set_id_namespace as cybox_sin, Namespace
 
-file_hash = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
-confidence = 'Low' # High, Medium, Low, None, or Unknown
+# "hardcoded" values
+ns = "urn:example.com:marks_malware_metadata_mart"
+ns_alias = "m4"
 
+# Set the STIX ID Namespace
+stix_namespace = {ns: ns_alias}
+stix_sin(stix_namespace)
+
+# Set the CybOX ID Namespace
+cybox_namespace = Namespace(ns, ns_alias)
+cybox_sin(cybox_namespace)
+
+ttp_id = 'ttp-d539bb85-9363-4814-83c8-fa9975045686'
+ttp_timestamp = '2014-09-30T15:56:27.000000+00:00'
+
+# "database values"
+md5_hash = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+object_id = 'File-927731f2-cc2c-421c-a40e-dc6f4a6c75a4'
+observable_id = 'Observable-45e3e64c-8438-441e-bc49-51e417466e29'
+confidence = 'High'
+confidence_timestamp = '2014-09-29T14:32:00.000000'
+indicator_id = 'Indicator-54baefc1-4742-4b40-ba83-afd51115015b'
+indicator_timestamp = '2014-09-29T14:32:00.000000'
+
+# Code to create the STIX Package
 sp = STIXPackage()
 sp.stix_header = STIXHeader()
-sp.stix_header.title = "File Hash Reputation for %s" % file_hash
+sp.stix_header.title = "File Hash Reputation for %s" % md5_hash
 sp.stix_header.add_package_intent("Indicators - Malware Artifacts")
 sp.stix_header.information_source = InformationSource()
 sp.stix_header.information_source.identity = Identity()
 sp.stix_header.information_source.identity.name = "Mark's Malware Metadata Mart"
 
-file_obj = File()
-file_obj.add_hash(file_hash)
-file_obj.hashes[0].type_.condition = "Equals"
-file_obj.hashes[0].simple_hash_value.condition = "Equals"
+file_hash = Hash(hash_value=md5_hash, type_='MD5', exact=True)
+file_hash.type_.condition = "Equals"
 
-indicator = Indicator(title="File Hash Reputation")
+file_obj = File()
+file_obj.id_ = (ns_alias + ':' + object_id)
+file_obj.add_hash(file_hash)
+
+indicator = Indicator(title="File Hash Reputation",
+                      id_=(ns_alias + ':' + indicator_id),
+                      timestamp=indicator_timestamp)
 indicator.indicator_type = "File Hash Reputation"
 indicator.add_observable(file_obj)
+indicator.observables[0].id_ = ns_alias + ':' + observable_id
 
 ttp = TTP()
+ttp.id_ = ns_alias + ':' + ttp_id
+ttp.timestamp = ttp_timestamp
 ttp.title = "Malicious File"
 
-indicator.add_indicated_ttp(TTP(idref=ttp.id_))
+indicator.add_indicated_ttp(TTP(idref=ttp.id_, timestamp=ttp.timestamp))
 indicator.indicated_ttps[0].confidence = confidence
+indicator.indicated_ttps[0].confidence.timestamp = confidence_timestamp
 
 sp.add_indicator(indicator)
 sp.add_ttp(ttp)
@@ -467,8 +485,9 @@ print poll_response.to_xml(pretty_print=True)
 [Python Source](file-hash-rep-poll-response.py)
 
 ### <a name="7"></a>Step 7 - Parse Response
-The information recipient parses the response and "makes a decision" (read: prints a statement) about whether to delete
-the file in question based on the reputation response. While this step is not performed by the service provider, 
+The information recipient parses the response and "makes a decision" (read: prints a statement) about whether the 
+file is safe to open
+ based on the reputation response. While this step is not performed by the service provider, 
 it is useful for completeness so it is included in this TAXII Service profile. 
 
 ### Parse Response - Python - DO NOT READ THIS YET, IT NEEDS TO BE UPDATED

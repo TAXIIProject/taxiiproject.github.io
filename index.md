@@ -25,7 +25,7 @@ no_in_page_title: true
   <div class="col-md-6">
     <h2>Service Profiles</h2>
     <p>You can also see examples of common design patterns in TAXII.</p>
-    <p><a class="btn btn-primary btn-lg" role="button" href="/service-profiles">Service Profiles »</a></p>
+    <p><a class="btn btn-primary btn-lg" role="button" href="/documentation/service-profiles">Service Profiles »</a></p>
   </div>
 </div>
 

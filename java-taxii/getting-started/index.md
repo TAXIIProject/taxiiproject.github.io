@@ -145,3 +145,54 @@ Each method also has a boolean parameter "checkSpecConformance" which performs s
         System.err.print("Validation error: ");
            e.printStackTrace();
     }
+
+#### Client
+The TAXII HttpClient class facilitates the sending of TAXII messages to a TAXII service.
+The TAXII HttpClient uses a TaxiiXml object that provides the JAXB context, and an
+Apache HttpClient that provides the actual HTTP protocol connection and transport support.
+
+    HttpClient taxiiClient = new HttpClient();
+        
+    final String serverUrl = "http://127.0.0.1:8080/services/discovery/";
+
+    // Prepare the message to send.
+    DiscoveryRequest dr = factory.createDiscoveryRequest()
+                .withMessageId(MessageHelper.generateMessageId());
+
+    // Call the services
+    Object responseObj = taxiiClient.callTaxiiService(new URI(serverUrl), dr);
+
+    if (responseObj instanceof DiscoveryResponse) {
+        DiscoveryResponse dResp = (DiscoveryResponse) responseObj;
+        processDiscoveryResponse(dResp);
+    } else if (responseObj instanceof StatusMessage) {
+        StatusMessage sm = (StatusMessage) responseObj;
+        processStatusMessage(sm);
+    }
+
+#### Advanced Client
+The default constuctor for the TAXII HttpClient provides a very simple Apache HttpClient.
+However, the TAXII HttpClient can be provided a preconfigured Apache HttpClient.
+The Apache HttpClient is a very rich object with many configuration options - especially 
+in the area of security. Below is an example of using an Apache HttpClient configured to 
+do basic username & password authentication.
+
+    // Create a client that uses basic authentication (user & password).
+    HttpClientBuilder cb = HttpClientBuilder.create();
+    CredentialsProvider credsProvider = new BasicCredentialsProvider();
+    credsProvider.setCredentials(
+            AuthScope.ANY,
+            new UsernamePasswordCredentials("taxii", "taxii"));        
+    cb.setDefaultCredentialsProvider(credsProvider);        
+    CloseableHttpClient httpClient = cb.build();
+
+    // Create a Taxii Client with the HttpClient object.
+    HttpClient taxiiClient = new HttpClient(httpClient);
+
+    // Prepare the message to send.
+    DiscoveryRequest dr = factory.createDiscoveryRequest()
+            .withMessageId(MessageHelper.generateMessageId());
+
+    // Call the service
+    final String serverUrl = "http://127.0.0.1:8100/services/discovery/";
+    Object responseObj = taxiiClient.callTaxiiService(new URI(serverUrl), dr);

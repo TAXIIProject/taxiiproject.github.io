@@ -3,3 +3,4 @@ Gemfile.lock
 output.txt
 .idea
 /nbproject/private/
+/nbproject/

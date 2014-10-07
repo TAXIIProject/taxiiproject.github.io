@@ -17,3 +17,4 @@ This library provides:
 * [Download java-taxii](download)
 * [Javadoc](javadoc)
 * [Download javadoc](java-taxii-javadoc.zip)
+* [Sample Clients](client)

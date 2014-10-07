@@ -14,7 +14,7 @@ Apache's HTTP Components library to establish the HTTP connection and transport 
 the Apache HTTP Components library, especially the CloseableHTTPClient class, will be helpful when using java-taxii.
 
 ### Installation
-Download the java-taxii .jar and place it in your classpath.
+[Download](../download) the java-taxii .jar and place it in your classpath.
 
 #### Dependencies
 
@@ -70,17 +70,11 @@ The simplest usage of the library is to create TAXII message objects
     ObjectFactory factory = new ObjectFactory();
     DiscoveryRequest request = factory.createDiscoveryRequest().withMessageId(MessageHelper.generateMessageId());
 
-or 
-
-    DiscoveryRequest dr = new DiscoveryRequest().withMessageId(MessageHelper.generateMessageId());
-
-JAXB convention recommends the use of the ObjectFactory to create instances of the TAXII objects but it is not necessary.
-
 #### Message Marshaling
 Once a TAXII message object is created, the next step is to render it as XML. To do this, you need a JAXB context that
-understands how to serialize or marshal the object to XML. This context is provided by a TaxiiXml object which is created
-using a TaxiiXmlFactory. There is quite a bit of configuration work done by the TaxiiXmlFactory behind the scenes, so it should
-always be used to create a properly configured TaxiiXml.
+understands how to marshal, or serialize, the object to XML. This context is provided by a TaxiiXml object which is created
+using a TaxiiXmlFactory. There is a fair bit of configuration work done by the TaxiiXmlFactory, so it should
+always be used to create a properly configured TaxiiXml instance.
 
     import org.mitre.taxii.messages.xml11.TaxiiXmlFactory;
     import org.mitre.taxii.messages.xml11.TaxiiXml;
@@ -122,11 +116,13 @@ must be cast to the expected type.
 Creating and unmarshaling TAXII items does not guarantee that they are schema or business rule valid. You could create an
 object and not populate member objects that the schema requires. For example, a Status Message with status type of "PENDING"
 is required to have a Status Detail with name "ESTIMATED_WAIT"; further, the value of the Status Detail must be a positive
-integer. Those interrelations and constraints are not expressed in the schema but as Schematron rules.
+integer. Those interrelations and constraints cannot be expressed using XML Schema. Instead, they are expressed as
+[Schematron](http://www.schematron.com) rules embedded within the schema.
 
 Java-taxii provides a few different ways to validate TAXII items. TaxiiXml provides two methods to do validation: validateFast() and 
 validateAll(). ValidateFast() will return after the first error is encountered while validateAll() will build a list of validation errors.
-Each method also has a boolean parameter "checkSpecConformance" which performs specification conformance checks beyond what XML schema supports.
+Each method also has a boolean parameter "checkSpecConformance" which uses Schematron rules to perform specification conformance checks beyond what XML Schema
+supports.
 
     ObjectFactory of = new ObjectFactory(); // JAXB factory for TAXII 
     TaxiiXmlFactory txf = new TaxiiXmlFactory(); // Create a factory with the default configuration.

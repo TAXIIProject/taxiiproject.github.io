@@ -11,7 +11,7 @@ the java-taxii library and all the required support libraries.
 
 * [Download](java-taxii-clients.zip)
 
-The source code for the clients is available on [GitHub](https://github.com/TAXIIProject/java-taxii-clients)
+The source code for the clients is available on [GitHub](https://github.com/TAXIIProject/java-taxii-clients).
 
 ### Usage
 There are shell and batch scripts provided that execute the proper classes in the .jar. Simply run these

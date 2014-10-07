@@ -19,8 +19,8 @@ tagline: Developer documentation for TAXII
     </div>
     
     <div class="well">
-      <h4><a href="/developers/java-taxii">Java-taxii</a></h4>
-      <p>Java-taxii is a Java library for TAXII Messages and TAXII Clients.</p>
+      <h4><a href="/developers/java-taxii">java-taxii</a></h4>
+      <p>java-taxii is a Java library for TAXII Messages and TAXII Clients.</p>
       <a class="btn btn-primary" href="/developers/java-taxii">Go »</a>
     </div>
     

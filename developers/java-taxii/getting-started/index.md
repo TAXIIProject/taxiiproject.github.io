@@ -39,6 +39,7 @@ a build environment that installs the required libraries from there.
 
 java-taxii uses the Gradle build tool. Below is an example of importing the dependencies using Gradle:
 
+```java
     repositories {
         mavenCentral()
     }
@@ -53,7 +54,7 @@ java-taxii uses the Gradle build tool. Below is an example of importing the depe
         compile 'org.apache.httpcomponents:fluent-hc:4.3.5'    
         compile files(lib/java-taxii.jar')
     }
-
+```
 ### Sample Usage
 It is strongly recommended that you examine the unit test source files for examples of
 using the library. There are many tests for object creation of various complexity, 
@@ -62,6 +63,7 @@ tests demonstrating validation, and tests of the client.
 #### Object Creation
 The simplest usage of the library is to create TAXII message objects
 
+```java
     import org.mitre.taxii.messages.xml11.ObjectFactory;
     import org.mitre.taxii.messages.xml11.DiscoveryRequest;
     import org.mitre.taxii.messages.xml11.MessageHelper;
@@ -69,6 +71,7 @@ The simplest usage of the library is to create TAXII message objects
     ...
     ObjectFactory factory = new ObjectFactory();
     DiscoveryRequest request = factory.createDiscoveryRequest().withMessageId(MessageHelper.generateMessageId());
+```
 
 #### Message Marshaling
 Once a TAXII message object is created, the next step is to render it as XML. To do this, you need a JAXB context that
@@ -76,6 +79,7 @@ understands how to marshal, or serialize, the object to XML. This context is pro
 using a TaxiiXmlFactory. There is a fair bit of configuration work done by the TaxiiXmlFactory, so it should
 always be used to create a properly configured TaxiiXml instance.
 
+```java
     import org.mitre.taxii.messages.xml11.TaxiiXmlFactory;
     import org.mitre.taxii.messages.xml11.TaxiiXml;
     import org.mitre.taxii.messages.xml11.ObjectFactory;
@@ -90,10 +94,12 @@ always be used to create a properly configured TaxiiXml instance.
     DiscoveryRequest dr = of.createDiscoveryRequest().withMessageId(MessageHelper.generateMessageId());
 
     String xmlString = taxiiXml.marshalToString(dr, true);
+```
 
 #### Message Unmarshaling
 To parse an XML string into an object representation is also done using a TaxiiXml object.
 
+```java
     import javax.xml.bind.Unmarshaller;
     import org.mitre.taxii.messages.xml11.TaxiiXmlFactory;
     import org.mitre.taxii.messages.xml11.TaxiiXml;
@@ -108,6 +114,7 @@ To parse an XML string into an object representation is also done using a TaxiiX
     Unmarshaller unmarshaller = taxiiXml.getJaxbContext().createUnmarshaller();
 
     StatusMessage message = (StatusMessage) unmarshaller.unmarshal(new StringReader(xml));
+```
 
 Notice that you need to know the type of the item being parsed beforehand. The Unmarshaller will return an Object which 
 must be cast to the expected type.
@@ -124,6 +131,7 @@ validateAll(). ValidateFast() will return after the first error is encountered w
 Each method also has a boolean parameter "checkSpecConformance" which uses Schematron rules to perform specification conformance checks beyond what XML Schema
 supports.
 
+```java
     ObjectFactory of = new ObjectFactory(); // JAXB factory for TAXII 
     TaxiiXmlFactory txf = new TaxiiXmlFactory(); // Create a factory with the default configuration.
     TaxiiXml taxiiXml = txf.createTaxiiXml(); // get a properly configured TaxiiXml
@@ -144,12 +152,14 @@ supports.
         System.err.print("Validation error: ");
            e.printStackTrace();
     }
+```
 
 #### Client
 The TAXII HttpClient class facilitates the sending of TAXII messages to a TAXII service.
 The TAXII HttpClient uses a TaxiiXml object that provides the JAXB context, and an
 Apache HttpClient that provides the actual HTTP protocol connection and transport support.
 
+```java
     HttpClient taxiiClient = new HttpClient();
         
     final String serverUrl = "http://127.0.0.1:8080/services/discovery/";
@@ -168,6 +178,7 @@ Apache HttpClient that provides the actual HTTP protocol connection and transpor
         StatusMessage sm = (StatusMessage) responseObj;
         processStatusMessage(sm);
     }
+```
 
 #### Advanced Client
 The default constuctor for the TAXII HttpClient provides a very simple Apache HttpClient.
@@ -176,6 +187,7 @@ The Apache HttpClient is a very rich object with many configuration options - es
 in the area of security. Below is an example of using an Apache HttpClient configured to 
 do basic username & password authentication.
 
+```java
     // Create a client that uses basic authentication (user & password).
     HttpClientBuilder cb = HttpClientBuilder.create();
     CredentialsProvider credsProvider = new BasicCredentialsProvider();
@@ -195,3 +207,4 @@ do basic username & password authentication.
     // Call the service
     final String serverUrl = "http://127.0.0.1:8100/services/discovery/";
     Object responseObj = taxiiClient.callTaxiiService(new URI(serverUrl), dr);
+```

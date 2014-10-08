@@ -10,6 +10,8 @@ Service Concepts. The code is all demonstrated using django-taxii-services.
 The list can be filtered based on the use case in
 which they are applicable, as well as by which TAXII Services they use.
 
+<h3><font color="red">TAXII Service Profiles are still being worked on, and there will be an announcement as they go live!</font></h3> 
+
 <div class="row">
   <div class="col-md-12">
     {% assign use_case_list = "Reputation" %}
@@ -53,6 +55,9 @@ which they are applicable, as well as by which TAXII Services they use.
         </tr>
       </thead>
       <tbody>
+      
+      {% comment %} UNCOMMENT THIS WHEN SERVICE PROFILES ARE READY
+      
         {% for page in site.pages %}
           {% if page.use_cases | size != 0  or page.services | size != 0 %}
             <tr>
@@ -88,6 +93,8 @@ which they are applicable, as well as by which TAXII Services they use.
             </tr>
           {% endif %}
         {% endfor %}
+        
+        {% endcomment %}
       </tbody>
     </table>
   </div>

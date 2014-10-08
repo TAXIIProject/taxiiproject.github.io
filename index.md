@@ -18,14 +18,13 @@ no_in_page_title: true
   <div class="col-md-6">
     <h2>Documentation</h2>
     <p>Now that you have an idea of what TAXII is and how it can be used,
-    learn about tools that support TAXII and other in-depth
-    documentation.</p>
+    get a more in-depth view of TAXII.</p>
     <p><a class="btn btn-primary btn-lg" role="button" href="/documentation">Documentation »</a></p>
   </div>
   <div class="col-md-6">
-    <h2>Service Profiles</h2>
-    <p>You can also see examples of common design patterns in TAXII.</p>
-    <p><a class="btn btn-primary btn-lg" role="button" href="/documentation/service-profiles">Service Profiles »</a></p>
+    <h2>Developers</h2>
+    <p>You can also see developer documentation for TAXII.</p>
+    <p><a class="btn btn-primary btn-lg" role="button" href="/developers">Developers »</a></p>
   </div>
 </div>
 

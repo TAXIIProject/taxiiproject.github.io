@@ -11,8 +11,23 @@ This library provides:
 * Serialization, deserialization, and validation of TAXII Messages.
 * An HTTP/HTTPS TAXII Client.
 
-### Contents
+### Downloads
+
+* [Download from PyPI](https://pypi.python.org/pypi/libtaxii/)
+* [Other installation methods](http://libtaxii.readthedocs.org/en/latest/installation.html)
+
+### Documentation
+
+`libtaxii` documentation is hosted on Read the Docs.
 
 * [Getting Started](http://libtaxii.readthedocs.org/en/latest/getting_started.html)
+<<<<<<< HEAD
 * [Download libtaxii](https://pypi.python.org/pypi/libtaxii/)
 * [Documentation](http://libtaxii.readthedocs.org/en/latest/)
+=======
+* [Full Documentation](http://libtaxii.readthedocs.org/en/latest/)
+
+### Source Code
+
+`libtaxii` development occurs on [GitHub](https://github.com/TAXIIProject/libtaxii).
+>>>>>>> upstream/master

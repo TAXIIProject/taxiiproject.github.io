@@ -2,7 +2,7 @@
   <hr />
   <div class="container">
     <p class="text-muted">
-      Copyright {{ site.time | date: '%Y' }} {{ site.copyright }}. <a href="http://stix.mitre.org/about/termsofuse.html">Terms of Use</a>
+      Copyright {{ site.time | date: '%Y' }} {{ site.copyright }}. <a href="http://taxii.mitre.org/about/termsofuse.html">Terms of Use</a>
     </p>
   </div>
 </div>
@@ -15,10 +15,6 @@
 
 <!-- typeahead JS -->
 <script src="{{site.root}}/js/typeahead.min.js"></script>
-
-<!-- autocomplete results -->
-
-<script src="{{site.root}}/js/autocomplete-{% if page.this_version %}{{page.this_version}}{% else %}{{site.current_version}}{% endif %}.js"></script>
 
 <!-- Custom JS -->
 <script src="{{site.root}}/js/main.js"></script>

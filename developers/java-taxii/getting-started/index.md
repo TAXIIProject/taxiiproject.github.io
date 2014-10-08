@@ -14,7 +14,7 @@ Apache's HTTP Components library to establish the HTTP connection and transport 
 the Apache HTTP Components library, especially the CloseableHTTPClient class, will be helpful when using java-taxii.
 
 ### Installation
-[Download](../download) the java-taxii .jar and place it in your classpath.
+[Download](../#downloads) the java-taxii .jar and place it in your classpath.
 
 #### Dependencies
 

@@ -14,5 +14,5 @@ This library provides:
 ### Contents
 
 * [Getting Started](http://libtaxii.readthedocs.org/en/latest/getting_started.html)
-* [Download java-taxii](https://pypi.python.org/pypi/libtaxii/)
+* [Download libtaxii](https://pypi.python.org/pypi/libtaxii/)
 * [Documentation](http://libtaxii.readthedocs.org/en/latest/)

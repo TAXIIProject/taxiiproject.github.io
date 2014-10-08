@@ -14,8 +14,5 @@ This library provides:
 ### Contents
 
 * [Getting Started](getting-started)
-* [Download java-taxii](download)
-* [Source Code](https://github.com/TAXIIProject/java-taxii)
-* [Javadoc](javadoc)
-* [Download javadoc](java-taxii-javadoc.zip)
+* [Versions: download, release notes, source & javadocs](download)
 * [Sample Clients](client)

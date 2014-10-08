@@ -21,13 +21,8 @@ This library provides:
 `libtaxii` documentation is hosted on Read the Docs.
 
 * [Getting Started](http://libtaxii.readthedocs.org/en/latest/getting_started.html)
-<<<<<<< HEAD
-* [Download libtaxii](https://pypi.python.org/pypi/libtaxii/)
-* [Documentation](http://libtaxii.readthedocs.org/en/latest/)
-=======
 * [Full Documentation](http://libtaxii.readthedocs.org/en/latest/)
 
 ### Source Code
 
 `libtaxii` development occurs on [GitHub](https://github.com/TAXIIProject/libtaxii).
->>>>>>> upstream/master

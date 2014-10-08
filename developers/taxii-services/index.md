@@ -21,13 +21,8 @@ This library:
 `taxii-services` documentation is hosted on Read the Docs.
 
 * [Getting Started](http://taxii-services.readthedocs.org/en/latest/getting_started.html)
-<<<<<<< HEAD
-* [Download taxii-services](https://pypi.python.org/pypi/taxii-services/)
-* [Documentation](http://taxii-services.readthedocs.org/en/latest/)
-=======
 * [Full Documentation](http://taxii-services.readthedocs.org/en/latest/)
 
 ### Source Code
 
 `taxii-services` development occurs on [GitHub](https://github.com/TAXIIProject/django-taxii-services).
->>>>>>> upstream/master

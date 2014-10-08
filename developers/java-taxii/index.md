@@ -23,10 +23,6 @@ Downloads of `java-taxii` are hosted on GitHub.
 ### Documentation
 
 * [Getting Started](getting-started)
-<<<<<<< HEAD
-* [Versions: download, release notes, source & javadocs](download)
-* [Sample Clients](client)
-=======
 * [Javadoc](javadoc) (hosted)
 * [Download javadoc](https://github.com/TAXIIProject/java-taxii/releases/download/1.0.0/java-taxii-javadoc.zip) for offline use.
 
@@ -39,4 +35,3 @@ Downloads of `java-taxii` are hosted on GitHub.
 * [Sample Clients](client) - A standalone .jar file (does not require java-taxii
     separately), and associated shell/batch scripts for communicating with
     TAXII servers.
->>>>>>> upstream/master

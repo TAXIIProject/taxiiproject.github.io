@@ -9,7 +9,7 @@ to construct simple command line applications that send and receive TAXII messag
 to a TAXII server. The sample clients are packaged as a single .jar that contains
 the java-taxii library and all the required support libraries.
 
-<a class="btn btn-success btn-lg" href="https://github.com/TAXIIProject/java-taxii-clients/releases/download/1.0.0/java-taxii-clients.zip">Download Java TAXII Clients</a>
+<a class="btn btn-success btn-lg" href="https://github.com/TAXIIProject/java-taxii-clients/releases/download/v1.0.0/java-taxii-clients.zip">Download Java TAXII Clients</a>
 
 ### Source code
 The source code for the java-taxii clients is available on [GitHub](https://github.com/TAXIIProject/java-taxii-clients).

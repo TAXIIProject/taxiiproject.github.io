@@ -15,16 +15,16 @@ This library provides:
 
 Downloads of `java-taxii` are hosted on GitHub.
 
-<a class="btn btn-success btn-lg" href="https://github.com/TAXIIProject/java-taxii/releases/download/1.0.0/java-taxii-1.0.0.zip">Download java-taxii-1.0.0.zip</a>
+<a class="btn btn-success btn-lg" href="https://github.com/TAXIIProject/java-taxii/releases/download/v1.0.0/java-taxii-1.0.0.zip">Download java-taxii-1.0.0.zip</a>
 
-[Release notes](https://github.com/TAXIIProject/java-taxii/releases/tag/1.0.0)
+[Release notes](https://github.com/TAXIIProject/java-taxii/releases/tag/v1.0.0)
 | [All versions](https://github.com/TAXIIProject/java-taxii/releases)
 
 ### Documentation
 
 * [Getting Started](getting-started)
 * [Javadoc](javadoc) (hosted)
-* [Download javadoc](https://github.com/TAXIIProject/java-taxii/releases/download/1.0.0/java-taxii-javadoc.zip) for offline use.
+* [Download javadoc](https://github.com/TAXIIProject/java-taxii/releases/download/v1.0.0/java-taxii-1.0.0-javadoc.zip) for offline use.
 
 ### Source Code
 

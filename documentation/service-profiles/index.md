@@ -5,10 +5,15 @@ title: TAXII Service Profiles
 
 <link href="/css/idioms.css" rel="stylesheet"/>
 
-The Service Profiles on this page provide guidance on how to implement common TAXII 
-Service Concepts. The code is all demonstrated using django-taxii-services.
-The list can be filtered based on the use case in
-which they are applicable, as well as by which TAXII Services they use.
+TAXII Service Profiles define implementation requirements and patterns for common TAXII use cases. Each TAXII Service
+Profile consists of a use case description, requirements, and documents one way to meet the Service Profile's
+requirements. Usually, the documentation portion will use publically available tools. 
+While conforming to TAXII Service Profiles is optional (a TAXII implementation can conform to as many or as few 
+as desired),
+any implementation claiming conformance with a particular TAXII Service Profile MUST adhere to all 
+requirements in the TAXII Service Profile they are claiming conformance with.
+
+The list can be filtered based on use case categories, as well as by which TAXII Services they use.
 
 <h3><font color="red">TAXII Service Profiles are still being worked on, and there will be an announcement as they go live!</font></h3> 
 

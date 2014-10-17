@@ -1,6 +1,6 @@
 ---
 layout: flat
-title: File Hash Reputation
+title: File Hash Reputation - v1
 use_cases:
     - Reputation
 services:
@@ -8,6 +8,173 @@ services:
 summary: The File Hash Reputation TAXII Service Profile documents a File Hash Reputation Service in TAXII.
 ---
 
+## Use Case
+For the File Hash Reputation use case, an information provider can assert how confident they are 
+(e.g., High/Medium/Low) that a particular File Hash indicates a file that contains Malware and 
+wants to make that information available using STIX and TAXII.
+
+## Version
+The current version of the File Hash Reputation TAXII Service Profile is Version 1. These version numbers exist so
+that changes to the File Hash Reputation TAXII Service Profile can be tracked against implementations.
+
+## Requirements
+Implementers claiming conformance to the File Hash Reputation v1 MUST:
+
+1. Adhere to all requirements in TAXII 1.1.
+1. Host a TAXII Poll Service that can respond to TAXII Default Queries:
+ 1. Support the STIX 1.1.1 (urn:stix.mitre.org:xml:1.1.1) Targeting Expression Vocabulary
+ 1. Support TAXII Default Query's Core Capability Module
+ 1. Support the `**/Simple_Hash_Value` Targeting Expression as a Preferred Scope
+1. Have a Data Collection named `file_hash_reputation` that can be queried for File Hash Reputation
+1. Be able to represent File Hash Reputations in STIX 1.1.1
+ 1. Keep track of IDs for: CybOX Observables and Objects
+ 1. Keep track of IDs and timestamps for: Indicators, Indicated_TTPs, TTPs, and Confidence Assertions
+ 1. Use PackageIntent = "Indicators - Malware Artifacts"
+ 1. Represent a File Hash as a STIX Indicator with an Indicated_TTP
+ 1. Use the Indicated_TTP Confidence Assertion to assert confidence that a File Hash indicates a malicious file
+ 1. Use the STIX HighMediumLowVocab-1.0 for asserting confidence that a File Hash indicates a malicious file
+
+
+## Request Messages
+Implementers claiming conformance to this version of the File Hash Reputation TAXII Service Profile must be able
+to respond to TAXII Poll Request Messages that look like the following message; note that certain fields
+may be different in each request. Those fields are listed below and surrounded by square brackets [] in the XML example.
+
+* Poll_Request/@message_id 
+* The value of Parameters/@name="value" 
+
+{% highlight xml linenos %}
+<taxii_11:Poll_Request
+        xmlns:taxii_11="http://taxii.mitre.org/messages/taxii_xml_binding-1.1"
+        xmlns:tdq="http://taxii.mitre.org/query/taxii_default_query-1"
+        message_id="[55134]" collection_name="file_hash_reputation">
+  <taxii_11:Poll_Parameters allow_asynch="false">
+    <taxii_11:Response_Type>FULL</taxii_11:Response_Type>
+    <taxii_11:Content_Binding binding_id="urn:stix.mitre.org:xml:1.1.1"/>
+    <taxii_11:Query format_id="urn:taxii.mitre.org:query:default:1.0">
+      <tdq:Default_Query targeting_expression_id="urn:stix.mitre.org:xml:1.1.1">
+        <tdq:Criteria operator="AND">
+          <tdq:Criterion negate="false">
+            <tdq:Target>**/Simple_Hash_Value</tdq:Target>
+            <tdq:Test capability_id="urn:taxii.mitre.org:query:capability:core-1" relationship="equals">
+              <tdq:Parameter name="match_type">case_insensitive_string</tdq:Parameter>
+              <tdq:Parameter name="value">[AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]</tdq:Parameter>
+            </tdq:Test>
+          </tdq:Criterion>
+        </tdq:Criteria>
+      </tdq:Default_Query>
+    </taxii_11:Query>
+  </taxii_11:Poll_Parameters>
+</taxii_11:Poll_Request>
+{% endhighlight %}
+
+## Response Messages
+Implementers claiming conformance to this version of the File Hash Reputation TAXII Service Profile must be able
+to respond with a TAXII Poll Response Message that looks like the following message.
+
+Note that each of the following fields may be different for each information provider:
+
+* STIX_Package/STIX_Header/Information_Source/Identity, @id and `<Name>` 
+* The ID Namespace (xmlns:m4="..." in the example)
+
+Note that each of the following fields may be different in each response:
+
+TAXII Fields:
+
+* @id and @in_response_to for Poll_Response
+
+STIX Fields:
+
+* @id and @timestamp for each of: STIX_Package, Indicator, TTP, Indicated_TTP/TTP - To track version info for the identified STIX constructs
+* @id for Observable and Observable/Object - To track versions of CybOX observables and objects.
+* STIX_Package/STIX_Header/Title - The identified File Hash will depend on the File Hash specified in the Request
+* Hash/Type - The identified File Hash type will be the type of the requested File Hash
+* Hash/Simple_Hash_Value - The identified File Hash will be the File Hash specified in the request
+* Confidence/@timestamp - The DateTime that the confidence assertion was made 
+* Confidence/Value - Will be the confidence (High, Medium, Low, Unknown, None) that the File Hash indicates a malicious file
+
+{% highlight xml linenos %}
+<taxii_11:Poll_Response
+    xmlns:taxii_11="http://taxii.mitre.org/messages/taxii_xml_binding-1.1"
+    message_id="[1000]"
+    in_response_to="[1234]" 
+    collection_name="file_hash_reputation" 
+    more="false" result_part_number="1">
+    <taxii_11:Content_Block>
+        <taxii_11:Content_Binding binding_id="urn:stix.mitre.org:xml:1.1.1"/>
+        <taxii_11:Content>
+            <stix:STIX_Package xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
+                xmlns:cybox="http://cybox.mitre.org/cybox-2"
+                xmlns:cyboxVocabs="http://cybox.mitre.org/default_vocabularies-2"
+                xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2"
+                xmlns:incident="http://stix.mitre.org/Incident-1"
+                xmlns:indicator="http://stix.mitre.org/Indicator-2"
+                xmlns:ttp="http://stix.mitre.org/TTP-1"
+                xmlns:stixCommon="http://stix.mitre.org/common-1"
+                xmlns:stixVocabs="http://stix.mitre.org/default_vocabularies-1"
+                xmlns:stix="http://stix.mitre.org/stix-1"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                [xmlns:m4="urn:example.com:marks_malware_metadata_mart"]
+                xsi:schemaLocation="  http://cybox.mitre.org/common-2 http://cybox.mitre.org/XMLSchema/common/2.1/cybox_common.xsd  http://cybox.mitre.org/cybox-2 http://cybox.mitre.org/XMLSchema/core/2.1/cybox_core.xsd  http://cybox.mitre.org/default_vocabularies-2 http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd  http://cybox.mitre.org/objects#FileObject-2 http://cybox.mitre.org/XMLSchema/objects/File/2.1/File_Object.xsd  http://stix.mitre.org/Incident-1 http://stix.mitre.org/XMLSchema/incident/1.1.1/incident.xsd  http://stix.mitre.org/Indicator-2 http://stix.mitre.org/XMLSchema/indicator/2.1.1/indicator.xsd  http://stix.mitre.org/TTP-1 http://stix.mitre.org/XMLSchema/ttp/1.1.1/ttp.xsd  http://stix.mitre.org/common-1 http://stix.mitre.org/XMLSchema/common/1.1.1/stix_common.xsd  http://stix.mitre.org/default_vocabularies-1 http://stix.mitre.org/XMLSchema/default_vocabularies/1.1.1/stix_default_vocabularies.xsd  http://stix.mitre.org/stix-1 http://stix.mitre.org/XMLSchema/core/1.1.1/stix_core.xsd"
+                id="[m4:Package-5d58cbc6-673e-4483-ab00-ec0bc78a2201]" version="1.1.1"
+                timestamp="[2014-09-30T17:03:53.325000+00:00]">
+                <stix:STIX_Header>
+                    <stix:Title>File Hash Reputation for [AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]</stix:Title>
+                    <stix:Package_Intent xsi:type="stixVocabs:PackageIntentVocab-1.0"
+                        >Indicators - Malware Artifacts</stix:Package_Intent>
+                    <stix:Information_Source>
+                        <stixCommon:Identity id="[m4:Identity-ae112339-7f78-4ef4-b602-7246fb28229e]">
+                            <stixCommon:Name>[Mark's Malware Metadata Mart]</stixCommon:Name>
+                        </stixCommon:Identity>
+                    </stix:Information_Source>
+                </stix:STIX_Header>
+                <stix:Indicators>
+                    <stix:Indicator id="[m4:Indicator-54baefc1-4742-4b40-ba83-afd51115015b]"
+                        timestamp="[2014-09-29T14:32:00]" xsi:type="indicator:IndicatorType"
+                        negate="false" version="2.1.1">
+                        <indicator:Title>File Hash Reputation</indicator:Title>
+                        <indicator:Observable
+                            id="[m4:Observable-45e3e64c-8438-441e-bc49-51e417466e29]">
+                            <cybox:Object id="[m4:File-8835d32f-14e0-4b32-8c19-85986a56e3ff]">
+                                <cybox:Properties xsi:type="FileObj:FileObjectType">
+                                    <FileObj:Hashes>
+                                        <cyboxCommon:Hash>
+                                            <cyboxCommon:Type condition="Equals"
+                                                xsi:type="cyboxVocabs:HashNameVocab-1.0"
+                                                >[MD5]</cyboxCommon:Type>
+                                            <cyboxCommon:Simple_Hash_Value condition="Equals"
+                                                >[AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]</cyboxCommon:Simple_Hash_Value>
+                                        </cyboxCommon:Hash>
+                                    </FileObj:Hashes>
+                                </cybox:Properties>
+                            </cybox:Object>
+                        </indicator:Observable>
+                        <indicator:Indicated_TTP>
+                            <stixCommon:Confidence timestamp="[2014-09-29T14:32:00]">
+                                <stixCommon:Value xsi:type="stixVocabs:HighMediumLowVocab-1.0"
+                                    >[High]</stixCommon:Value>
+                            </stixCommon:Confidence>
+                            <stixCommon:TTP idref="[m4:ttp-d539bb85-9363-4814-83c8-fa9975045686]"
+                                timestamp="[2014-09-30T15:56:27+00:00]" xsi:type="ttp:TTPType"
+                                version="1.1.1"/>
+                        </indicator:Indicated_TTP>
+                    </stix:Indicator>
+                </stix:Indicators>
+                <stix:TTPs>
+                    <stix:TTP id="[m4:ttp-d539bb85-9363-4814-83c8-fa9975045686]"
+                        timestamp="[2014-09-30T15:56:27+00:00]" xsi:type="ttp:TTPType" version="1.1.1">
+                        <ttp:Title>Malicious File</ttp:Title>
+                    </stix:TTP>
+                </stix:TTPs>
+            </stix:STIX_Package>
+        </taxii_11:Content>
+    </taxii_11:Content_Block>
+</taxii_11:Poll_Response>
+{% endhighlight %}
+
+
+<!-- 
+BEGIN OLD, COMMENTED OUT, CONTENT
 A File Hash Reputation service allows requesters to specify a File Hash and receive a confidence assertion about whether 
 that File Hash indicates a malicious file - or, how confident information provider is that the file identified by that 
 File Hash is malicious. This example
@@ -521,6 +688,7 @@ for content_block in msg.content_blocks:
         print "OPEN FILE AT YOUR OWN RISK"
 {% endhighlight %}
 [Python Source](file-hash-rep-parse-response.py)
+-->
 
 ### Conclusion
 Hopefully that helps!

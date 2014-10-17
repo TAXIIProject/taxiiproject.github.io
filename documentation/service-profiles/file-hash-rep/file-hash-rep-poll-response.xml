@@ -31,8 +31,7 @@
                     </stix:Information_Source>
                 </stix:STIX_Header>
                 <stix:Indicators>
-                    <stix:Indicator id="m4:Indicator-54baefc1-4742-4b40-ba83-afd51115015b"
-                        timestamp="2014-09-29T14:32:00" xsi:type="indicator:IndicatorType"
+                    <stix:Indicator id="m4:Indicator-54baefc1-4742-4b40-ba83-afd51115015b" timestamp="2014-09-29T14:32:00" xsi:type="indicator:IndicatorType"
                         negate="false" version="2.1.1">
                         <indicator:Title>File Hash Reputation</indicator:Title>
                         <indicator:Observable

@@ -5,11 +5,11 @@ tagline: TAXII Introduction
 ---
 
 ### On This Page
-This page is intended to be a quick introduction to TAXII for newbies and a quick reference for everyone else.
+This page is intended to be a quick introduction to TAXII for newcomers and a quick reference for everyone else.
 
 Reading this page you will learn:
 
-* What TAXII is and TAXII was created 
+* What TAXII is and why TAXII was created 
 * The basic "vocabulary" of TAXII: TAXII Services, Data Collections, and supported Sharing Models
 
 ### What is TAXII?
@@ -66,13 +66,13 @@ A **TAXII Service** is a single unit of capability within TAXII. TAXII defines f
 
 ### Data Collections
 A TAXII **Data Collection** is a grouping of cyber threat information that can be exchanged using TAXII. 
-Each TAXII Data Collection has a name that uniquely identifies it among Data Collections from a information producer. 
+Each TAXII Data Collection has a name that identifies it among Data Collections from an information producer. 
 There are two types of TAXII Data Collections: TAXII **Data Feeds** and TAXII **Data Sets**.
 
 A TAXII **Data Feed** is an ordered Data Collection. A TAXII Data Feed's organization allows specific 
 portions of TAXII Data Feeds to be requested (e.g., "Give me all content since XYZ").
 
-A TAXII **Data Collection** is an unordered Data Collection.
+A TAXII **Data Set** is an unordered Data Collection.
 
 ### TAXII Clients and TAXII Servers; Information Producers and Information Consumers
 A point of confusion that may come up is how TAXII Clients and/or TAXII Servers can be both Information Producers and/or 

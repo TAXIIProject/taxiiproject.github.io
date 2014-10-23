@@ -35,26 +35,47 @@ input and engaged MITRE to create TAXII.
 TAXII is designed to support three common cyber threat information sharing models: Hub and Spoke, Source/Subscriber, 
 and Peer to Peer. 
 
-<table width="80%" align="center">
- <tr>
-   <td style="word-wrap:break-word"><b>Hub and Spoke</b> is a sharing model where one organization functions as the central clearinghouse 
-       for information, or hub, coordinating information exchange between partner organizations, or spokes.
-       Spokes can produce and/or consume information from the Hub.</td>
-   <td><img src="/images/hub_and_spoke.png" width="400" alt="Hub and Spoke Icon" /></td>
- </tr>
- <tr>
-   <td style="word-wrap:break-word"><img src="/images/source_subscriber.png" width="300" alt="Source/Subscriber Icon" /></td>
-   <td><b>Source/Subscriber</b> is a sharing model where one organization functions as the single source
-   of information and sends that information to subscribers.</td>
- </tr>
- <tr>
-   <td style="word-wrap:break-word"><b>Peer to Peer</b> is a sharing model where two or more organizations share information directly with 
-   one another. A Peer to Peer sharing model may be ad-hoc, where information exchange is not coordinated ahead of time
-   and is done on an as-needed basis, may be well defined with legal agreements and established procedures, or somewhere
-   in the middle.</td>
-   <td><img src="/images/peer_to_peer.png" width="300" alt="Peer to Peer Icon" /></td>
- </tr>
-</table>
+<div class="row">
+  <div class="col-lg-4 col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Hub and Spoke</h3>
+      </div>
+      <div class="panel-body">
+        <p><strong>Hub and Spoke</strong> is a sharing model where one organization functions as the central clearinghouse for information, or hub, coordinating information exchange between partner organizations, or spokes. Spokes can produce and/or consume information from the Hub.</p>
+        <div class="text-center">
+          <img src="/images/hub_and_spoke.png" width="300" alt="Hub and Spoke Model" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Source/Subscriber</h3>
+      </div>
+      <div class="panel-body">
+        <p><strong>Source/Subscriber</strong> is a sharing model where one organization functions as the single source of information and sends that information to subscribers.</p>
+        <div class="text-center">
+          <img src="/images/source_subscriber.png" width="300" alt="Source/Subscriber Model" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Peer to Peer</h3>
+      </div>
+      <div class="panel-body">
+        <p><strong>Peer to Peer</strong> is a sharing model where two or more organizations share information directly with one another. A Peer to Peer sharing model may be ad-hoc, where information exchange is not coordinated ahead of time and is done on an as-needed basis, may be well defined with legal agreements and established procedures, or somewhere in the middle.</p>
+        <div class="text-center">
+          <img src="/images/peer_to_peer.png" width="300" alt="Peer to Peer Model" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 ### TAXII Services
 A **TAXII Service** is a single unit of capability within TAXII. TAXII defines four TAXII Services:

@@ -7,6 +7,12 @@ tagline: User and Developer documentation for TAXII
 <div class="row">
   <div class="col-md-6 getting-started-left">
     <div class="well">
+      <h4><a href="/getting-started/intro">Introduction</a></h4>
+      <p>If you are brand new to TAXII, start here!</p>
+      <a class="btn btn-primary" href="/getting-started/intro">Go »</a>
+    </div>
+  
+    <div class="well">
       <h4><a href="http://makingsecuritymeasurable.mitre.org/docs/taxii-intro-handout.pdf" target="_blank">TAXII Brochure</a></h4>
       <p>The TAXII Brochure provides an overview of why TAXII was developed, what problems it solves, and how it solves those problems. 
       The TAXII Brochure (also called a "2-pager") is distributed at conferences.</p>

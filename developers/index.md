@@ -14,24 +14,23 @@ tagline: Developer documentation for TAXII
     
     <div class="well">
       <h4><a href="/developers/taxii-services">taxii-services</a></h4>
-      <p>django-taxii-services is a Python/Django library for TAXII Servers.</p>
+      <p>django-taxii-services is a Python/Django library for TAXII Servers. django-taxii-services uses libtaxii.</p>
       <a class="btn btn-primary" href="/developers/taxii-services">Go »</a>
     </div>
     
+    <div class="well">
+      <h4><a href="/developers/yeti">YETI</a></h4>
+      <p>YETI is an example TAXII Server that can be used for prototyping and
+      testing. YETI uses django-taxii-services and libtaxii.</p>
+      <a class="btn btn-primary" href="/developers/yeti">Go »</a>
+    </div>
+
+  </div>
+  <div class="col-md-6 getting-started-right">
     <div class="well">
       <h4><a href="/developers/java-taxii">java-taxii</a></h4>
       <p>java-taxii is a Java library for TAXII Messages and TAXII Clients.</p>
       <a class="btn btn-primary" href="/developers/java-taxii">Go »</a>
     </div>
-    
-    <!--
-    <div class="well">
-      <h4><a href="/developers/yeti">YETI</a></h4>
-      <p>The TAXII Training Materials (hosted in conjunction with the STIX Training Materials) contain a variety of presentations
-       and classroom exercises that have been presented at various times and places .</p>
-      <a class="btn btn-primary" href="/developers/yeti">Go »</a>
-    </div>
-    -->
-
   </div>
 </div>

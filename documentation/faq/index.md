@@ -21,6 +21,39 @@ field of that Status Message?
 wasn't fully realized until after TAXII 1.1 was released, and therefore there isn't a "standard" way to respond. The
 TAXII Team proposes using '0' as a convention for cases where the message_id of the request is not known.
 
+### T-Q2: Can Extended_Header have multiple XML children?
+
+**Q:** The TAXII XML Message Bindings (both 1.0 and 1.1) indicate that the `Extended_Header` element "MAY contain any 
+XML", does this include the `Extended_Header` element having multiple XML children?
+
+**A:** Just to make sure we're all on the same page, here are examples of both:
+
+`Extended_Header` with a single child (direct descendant):
+{% highlight xml linenos %}
+<Extended_Header>
+   <Some_Element>
+       <!-- Anything here, including more XML -->
+   </Some_Element>
+</Extended_Header>
+{% endhighlight %}
+
+`Extended_Header` with multiple children (direct descendants):
+{% highlight xml linenos %}
+<Extended_Header>
+   <Some_Element>
+       <!-- Anything here, including more XML -->
+   </Some_Element>
+   <Some_Other_Element>
+       <!-- Anything here, including more XML -->
+   </Some_Other_Element>
+</Extended_Header>
+{% endhighlight %}
+
+The short answer is that both variations of `Extended_Header` are permitted in TAXII. However, the second 
+variation (multiple children) is more complex to implement. Following the Robustness Principle (aka Postel's law), 
+senders of TAXII Messages should make every attempt to  use the first variation (single child) since it is simpler. 
+Recipients of TAXII Messages should support both variations, as both are permitted in TAXII.
+
 ## TAXII Default Query 1.0
 
 ### TDQ-Q1: match_type vs. case_sensitive_string

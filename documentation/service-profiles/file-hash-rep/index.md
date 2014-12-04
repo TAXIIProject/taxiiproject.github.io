@@ -5,22 +5,52 @@ use_cases:
     - Reputation
 services:
     - Poll Service
-summary: The File Hash Reputation TAXII Service Profile documents a File Hash Reputation Service in TAXII.
+summary: The File Hash Reputation TAXII Service Profile documentation.
 ---
 
-## Use Case
-For the File Hash Reputation use case, an information provider can assert how confident they are 
-(e.g., High/Medium/Low) that a particular File Hash indicates a file that contains Malware and 
-wants to make that information available using STIX and TAXII.
+### Overview
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4 col-md-6">
+      <p>The File Hash Reputation TAXII Service Profile documents a TAXII Poll Service that allows consumers to query for 
+      a file's reputation information based on information based on a file hash.
+      
+      By implementing the File Hash Reputation TAXII Service Profile, an information provider can assert 
+      how confident they are (e.g., High/Medium/Low) that a particular file contains Malware.
+      (TODO: This section could be formatted better)</p>
+    </div>
+    <div class="col-lg-4 col-md-6">
+      <p><img src="workflow.png" alt="Workflow" align="right" class="aside-text" width="400"/></p>
+    </div>
+  </div>
+</div>
 
-## Version
-The current version of the File Hash Reputation TAXII Service Profile is Version 1. These version numbers exist so
-that changes to the File Hash Reputation TAXII Service Profile can be tracked against implementations.
+### Use Case 1 - Decision Automation
+Some information systems make automated decisions about whether to block file attachments (e.g., email filters), 
+quarantine/remove files (e.g., malware scans), or allow users to open files (e.g., on-demand scans). In order to 
+operate effectively, these information systems must have accurate and up to date knowledge of a file's reputation.
 
-## Requirements
+An assertion about whether the file is believed to be malicious, as well as the confidence of that assertion, are key
+pieces of information for this use case.
+
+### Use Case 2 - Threat Analysis
+When researching a threat, an analyst may consult a file reputation service in order to determine what, if any, analysis
+has already been performed and the conclusions of that analysis. An analyst can use information from a file reputation
+service as input to their analytic processes.
+
+Determining the key pieces of information for this use case is difficult, as analytic processes and procedures can vary
+widely between organizations. The File Hash Reputation TAXII Service Profile assumes that any analysis information can
+be considered "key", as long as the analysis information has a confidence assertion and source information 
+so that an analyst can make an informed decision about the received information.
+
+### Version
+The current version of the File Hash Reputation TAXII Service Profile is Version 1. TAXII Service Profiles are versioned
+so that changes to TAXII Service Profile can be tracked by implementers.
+
+### Producer (Server) Requirements
 Implementers claiming conformance to the File Hash Reputation v1 MUST:
 
-1. Adhere to all requirements in TAXII 1.1.
+1. Adhere to all requirements in TAXII 1.1 and TAXII Default Query 1.0
 1. Host a TAXII Poll Service that can respond to TAXII Default Queries:
  1. Support the STIX 1.1.1 (urn:stix.mitre.org:xml:1.1.1) Targeting Expression Vocabulary
  1. Support TAXII Default Query's Core Capability Module
@@ -34,8 +64,84 @@ Implementers claiming conformance to the File Hash Reputation v1 MUST:
  1. Use the Indicated_TTP Confidence Assertion to assert confidence that a File Hash indicates a malicious file
  1. Use the STIX HighMediumLowVocab-1.0 for asserting confidence that a File Hash indicates a malicious file
 
+### Consumer (Client) Requirements
+1. Adhere to all requirements in TAXII 1.1 and TAXII Default Query 1.0
+1. Have a Poll Client capable of expressing a Query:
+ 1. Support the STIX 1.1.1 (urn:stix.mitre.org:xml:1.1.1) Targeting Expression Vocabulary
+ 1. Support TAXII Default Query's Code Capability Module
+ 1. Be able to specify the `**/Simple_Hash_Value` Targeting Expression as a Target
+1. Be able to query a Data Collection named `file_hash_reputation`
+1. Be able to receive a Poll Response
+ 1. Parse and comprehend STIX 1.1.1 responses
 
-## Request Messages
+### Workflow
+Some workflow steps have requirements in them and others are purely informational. Steps are marked appropriately.
+
+#### Step 1a - Create a Poll Request with a Query (Client; Required)
+{% highlight python linenos %}
+my_test = tdq.Test(capability_id=CM_CORE,
+                   relationship=R_EQUALS,
+                   parameters={P_VALUE: value,
+                               P_MATCH_TYPE: 'case_insensitive_string'}
+                   )
+
+#Put the test into a Criterion
+my_criterion = tdq.Criterion(target=target, test=my_test)
+
+# Put the Criterion into a Criteria
+my_criteria = tdq.Criteria(operator=OP_AND,
+                           criterion=[my_criterion], 
+                           criteria=None)
+
+# Create a query with the criteria
+my_query = tdq.DefaultQuery(CB_STIX_XML_111, my_criteria)
+
+# Create a Poll Parameters that indicates
+# Only STIX 1.1.1 is accepted in response
+# and with the query created previously
+params = tm11.PollParameters(content_bindings=[tm11.ContentBinding(CB_STIX_XML_111)],
+                             query=my_query)
+
+poll_request = tm11.PollRequest(message_id=generate_message_id(),
+                                collection_name='file_hash_reputation',
+                                poll_parameters=params)
+
+print poll_request.to_xml(pretty_print=True)
+{% endhighlight %}
+
+#### Step 1b - Send a Poll Request (Client; Required)
+{% highlight python linenos %}
+# note that the poll_request variable is from Step 1a
+client = tc.HttpClient()
+client.set_use_https(True)
+client.set_auth_type(tc.HttpClient.AUTH_CERT)
+response = client.call_taxii_service2(host='HOSTNAME',
+                                      path='/path/to/service',
+                                      message_binding=VID_TAXII_XML_11,
+                                      post_data=poll_request.to_xml(pretty_print=True),
+                                      port=args.port)
+response_message = t.get_message_from_http_response(response, 0)
+print response_message.to_xml(pretty_print=True)
+{% endhighlight %}
+
+#### Step 2 - Receive Poll Request (Server; Required)
+
+#### Step 3 - Map TAXII Query to DB Query (Server; Informational)
+
+#### Step 4 - Execute DB Query (Server; Informational)
+
+#### Step 4 - Map Results to STIX (Server; Required)
+
+#### Step 5 - Create and Send Poll Response (Server; Required)
+
+#### Step 6 - Receive Poll Response (Client; Required)
+
+#### Step 7 - Make Decision (Client; Informational)
+
+
+<hr/><hr/><hr/><hr/><hr/><hr/><hr/><hr/><hr/><hr/><hr/>
+
+## Request Messages (Going to consider refactoring/deleting this)
 Implementers claiming conformance to this version of the File Hash Reputation TAXII Service Profile must be able
 to respond to TAXII Poll Request Messages that look like the following message; note that certain fields
 may be different in each request. Those fields are listed below and surrounded by square brackets [] in the XML example.

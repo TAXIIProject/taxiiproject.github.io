@@ -15,12 +15,13 @@ from libtaxii.constants import *
 value = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
 target = '**/Simple_Hash_Value'
 
+
 def main():
     # Create the test portion of the query
-    my_test = tdq.Test(capability_id = CM_CORE,
-                       relationship = R_EQUALS,
-                       parameters = {P_VALUE: value,
-                                     P_MATCH_TYPE: 'case_insensitive_string'}
+    my_test = tdq.Test(capability_id=CM_CORE,
+                       relationship=R_EQUALS,
+                       parameters={P_VALUE: value,
+                                   P_MATCH_TYPE: 'case_insensitive_string'}
                        )
 
     #Put the test into a Criterion
@@ -37,16 +38,14 @@ def main():
     # Create a Poll Parameters that indicates
     # Only STIX 1.1.1 is accepted in response
     # and with the query created previously
-    params = tm11.PollParameters(
-                    content_bindings = [tm11.ContentBinding(CB_STIX_XML_111)],
-                    query = my_query)
+    params = tm11.PollParameters(content_bindings=[tm11.ContentBinding(CB_STIX_XML_111)],
+                                 query=my_query)
 
-    poll_request = tm11.PollRequest(
-                        message_id = generate_message_id(),
-                        collection_name = 'file_hash_reputation',
-                        poll_parameters = params)
+    poll_request = tm11.PollRequest(message_id=generate_message_id(),
+                                    collection_name='file_hash_reputation',
+                                    poll_parameters=params)
 
-    print poll_request.to_xml(pretty_print = True)
+    print poll_request.to_xml(pretty_print=True)
 
 if __name__ == '__main__':
     main()

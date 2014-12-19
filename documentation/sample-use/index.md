@@ -1,5 +1,5 @@
 ---
-title: Documentation
+title: Sample Use
 layout: flat
 tagline: Sample usage for TAXII
 ---

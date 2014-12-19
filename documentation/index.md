@@ -19,5 +19,11 @@ tagline: Documentation for TAXII
       <p>The TAXII FAQ are a place for Questions and Answers about the TAXII Specifications.</p>
       <a class="btn btn-primary" href="/documentation/faq">Go »</a>
     </div>
+    
+    <div class="well">
+      <h4><a href="/documentation/sample-use">Sample Use</a></h4>
+      <p>Sample Use provides XML/HTTP examples for TAXII.</p>
+      <a class="btn btn-primary" href="/documentation/sample-use">Go »</a>
+    </div>
   </div>
 </div>

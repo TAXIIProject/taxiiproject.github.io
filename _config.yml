@@ -3,11 +3,8 @@ markdown: redcarpet
 highlighter: pygments
 
 copyright: The MITRE Corporation
-generate_documentation: true
 
 exclude: ['README.md', 'Gemfile', 'Gemfile.lock', "Rakefile", "LICENSE"]
-
-current_version: 1.1.1
 
 redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data", "tables"]

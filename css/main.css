@@ -251,3 +251,17 @@ p.data-model-description {
 .tab-pane.active > img {
   margin: 15px;
 }
+
+.header-link {
+  position: absolute;
+  left: -0.5em;
+  opacity: 0;
+}
+
+h2:hover .header-link,
+h3:hover .header-link,
+h4:hover .header-link,
+h5:hover .header-link,
+h6:hover .header-link {
+  opacity: 1;
+}

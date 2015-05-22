@@ -16,7 +16,7 @@ no_in_page_title: true
 <div class="row">
   <div class="col-md-4 text-center">
     <h2>Current Release</h2>
-    <p>Click for downloads and more.</p>
+    <p>Click for specifications and more.</p>
     <p><a class="btn btn-primary btn-lg" role="button" href="https://taxii.mitre.org/specifications/version1.1/">TAXII Version 1.1 »</a></p>
   </div>
   <div class="col-md-4 text-center">

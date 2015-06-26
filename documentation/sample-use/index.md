@@ -8,6 +8,50 @@ tagline: Sample usage for TAXII
 This page contains sample HTTP Request/Responses for TAXII. Please note that these examples do not demonstrate the
 full spectrum of TAXII capabilities. Each type of TAXII Message is listed at least once.
 
+
+## TAXII Services
+A **TAXII Service** is a single unit of capability within TAXII. TAXII defines four TAXII Services:
+
+* **Inbox Service** - Used by a TAXII Client to push information to a TAXII Server
+* **Poll Service** - Used by a TAXII Client to request information from a TAXII Server
+* **Collection Management Service** - Used by a TAXII Client to request information about available **Data Collections** or request a subscription.
+* **Discovery Service** - Used by a TAXII Client to discover available TAXII Services (e.g., "An Inbox Service is located at http://example.com/inbox_service ")
+
+## Data Collections
+A TAXII **Data Collection** is a grouping of cyber threat information that can be exchanged using TAXII. 
+Each TAXII Data Collection has a name that identifies it among Data Collections from an information producer. 
+There are two types of TAXII Data Collections: TAXII **Data Feeds** and TAXII **Data Sets**.
+
+A TAXII **Data Feed** is an ordered Data Collection. A TAXII Data Feed's organization allows specific 
+portions of TAXII Data Feeds to be requested (e.g., "Give me all content since XYZ").
+
+A TAXII **Data Set** is an unordered Data Collection.
+
+## TAXII Clients and TAXII Servers; Information Producers and Information Consumers
+A point of confusion that may come up is how TAXII Clients and/or TAXII Servers can be both Information Producers and/or 
+Information Consumers. This section attempts to clarify these distinctions.
+
+* TAXII Servers and Clients:
+ * A **TAXII Server** is TAXII Software that offers one or more **TAXII Services**. A TAXII Server listens for connections from TAXII Clients.
+ * A **TAXII Client** is TAXII Software that connects to one or more **TAXII Services**. A TAXII Client initiates connections with a TAXII Server.
+ * The **TAXII Client** and **TAXII Server** distinction is based on computer networking. 
+ * Note that **a single piece of software can be both** a TAXII Client and TAXII Server.
+* Information Producers and Consumers: 
+ * An **Information Producer** is software that sends information to another system.
+ * An **Information Consumer** is software that receives information from another system.
+ * The **Information Producer** and **Information Consumer** distinction is based on information flows.
+ * Note that **a single piece of software can be both** an Information Producer and Information Consumer.
+
+Two scenarios are illustrated in attempt to clarify the information above:
+
+* Scenario: A **TAXII Client** connects to a **TAXII Server** to send information (TAXII Inbox Service): 
+ * The **TAXII Client** is an **Information Producer**
+ * The **TAXII Server** is an **Information Consumer**
+* Scenario: A **TAXII Client** connects to a **TAXII Server** to request information (TAXII Poll Service): 
+ * The **TAXII Client** is an **Information Consumer**
+ * The **TAXII Server** is an **Information Producer** 
+
+
 ## TAXII 1.1 Discovery Service
 ### Sample TAXII 1.1 Discovery Request
 ```http

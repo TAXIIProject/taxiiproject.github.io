@@ -5,7 +5,7 @@ tagline: Enabling Cyber Threat Information Exchange
 no_in_page_title: true
 ---
 
-<h2 class="site-title">Trusted Automated eXchange of Indicator Information (TAXII™)</h2>
+<h2><strong>Trusted Automated eXchange of Indicator Information (TAXII™)</strong></h2>
 
 <div class="jumbotron">
   <p>TAXII defines a set of services and message exchanges that enable sharing of actionable cyber threat information across organization and product/service boundaries for the detection, prevention, and mitigation of cyber threats.</p>
@@ -22,7 +22,7 @@ no_in_page_title: true
   <div class="col-md-4 text-center">
     <h2>Community</h2>
     <p>Join us to help build this growing, open-source industry effort.</p>
-    <p><a class="btn btn-primary btn-lg" role="button" href="http://taxiiproject.github.io/community">Participate »</a></p>
+    <p><a class="btn btn-primary btn-lg" role="button" href="/community">Participate »</a></p>
 </div>
   <div class="col-md-4 text-center">
     <h2>Follow the TAXII Blog</h2>
@@ -52,7 +52,7 @@ no_in_page_title: true
   </div>
 </div>
 
-<hr><hr />
+<hr>
 
 <p class="lead text-center">
 	Have questions, comments, or feedback?

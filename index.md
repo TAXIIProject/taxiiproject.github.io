@@ -8,8 +8,7 @@ no_in_page_title: true
 <h2><strong>Trusted Automated eXchange of Indicator Information (TAXII™)</strong></h2>
 
 <div class="jumbotron">
-  <p>TAXII defines a set of services and message exchanges that enable sharing of actionable cyber threat information across organization and product/service boundaries for the detection, prevention, and mitigation of cyber threats.</p>
-  <p>TAXII is not a specific information sharing initiative, and it does not define trust agreements, governance, or non-technical aspects of cyber threat information sharing. Instead, TAXII enables organizations to easily share the information they choose with the partners they choose, while leveraging existing relationships and systems.</p>
+  <p>Regardless of whether you're an analyst, developer, or manager, we have tutorials, walkthroughs, and exercises to help you become familiar with TAXII.</p>
   <p><a class="btn btn-primary btn-lg" role="button" href="/getting-started">Get Started »</a></p>
 </div>
 

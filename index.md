@@ -12,43 +12,91 @@ no_in_page_title: true
   <p><a class="btn btn-primary btn-lg" role="button" href="/getting-started">Get Started »</a></p>
 </div>
 
+<!-- First row --> 
+
+<!-- Titles -->
 <div class="row">
   <div class="col-md-4 text-center">
     <h2>Current Release</h2>
-    <p>Click for specifications and more.</p>
-    <p><a class="btn btn-primary btn-lg" role="button" href="https://taxii.mitre.org/specifications/version1.1/">TAXII Version 1.1 »</a></p>
   </div>
   <div class="col-md-4 text-center">
     <h2>Community</h2>
-    <p>Join us to help build this growing, open-source industry effort.</p>
-    <p><a class="btn btn-primary btn-lg" role="button" href="/community">Participate »</a></p>
-</div>
+  </div>
   <div class="col-md-4 text-center">
     <h2>Follow the TAXII Blog</h2>
-    <p>The latest TAXII, STIX, CybOX, & MAEC news, straight from the source.</p>
-    <p><a class="btn btn-primary btn-lg" role="button" href="/blog">Follow »</a></p>
   </div>
 </div>
 
+<!-- Text -->
+<div class="row">
+    <div class="col-md-4 text-center">
+        <p>Click for specifications and more.</p>
+    </div>
+    <div class="col-md-4 text-center">
+        <p>Join us to help build this growing, open-source industry effort.</p>
+    </div>
+    <div class="col-md-4 text-center">
+        <p>The latest TAXII, STIX, CybOX, & MAEC news, straight from the source.</p>
+    </div>
+</div>
+
+<!-- Buttons -->
+<div class="row">
+    <div class="col-md-4 text-center">
+        <p><a class="btn btn-primary btn-lg" role="button" href="https://taxii.mitre.org/specifications/version1.1/">TAXII Version 1.1 »</a></p>
+    </div>
+    <div class="col-md-4 text-center">
+        <p><a class="btn btn-primary btn-lg" role="button" href="/community">Participate »</a></p>
+    </div>
+    <div class="col-md-4 text-center">
+        <p><a class="btn btn-primary btn-lg" role="button" href="/blog">Follow »</a></p>
+    </div>
+</div>
+
+<br/>
+
+<!-- Second row -->
+
+<!-- Titles -->
 <div class="row">
   <div class="col-md-4 text-center">
     <h2>OASIS</h2>
-    <p>TAXII, STIX, and CybOX are being transitioned to the Organization for the Advancement of Structured Information Standards (OASIS)</p>
-    <p><a class="btn btn-primary btn-lg" role="button" href="https://stixproject.github.io/stix-at-oasis.pdf">Announcement »</a></p>
   </div>
 
 <div class="col-md-4 text-center">
     <h2>Documentation</h2>
-    <p>Now that you have an idea of what TAXII is and how it can be used,
-    get a more in-depth view of TAXII.</p>
-    <p><a class="btn btn-primary btn-lg" role="button" href="/documentation">Documentation »</a></p>
   </div>
   
 <div class="col-md-4 text-center">
     <h2>Developers</h2>
-    <p>Review developer documentation for TAXII.</p>
-    <p><a class="btn btn-primary btn-lg" role="button" href="/developers">Developers »</a></p>
   </div>
+</div>
+
+<!-- Text -->
+<div class="row">
+    <div class="col-md-4 text-center">
+        <p>TAXII, STIX, and CybOX are being transitioned to the Organization for the Advancement of Structured Information Standards (OASIS)</p>
+    </div>
+    <div class="col-md-4 text-center">
+        <p>Now that you have an idea of what TAXII is and how it can be used,
+        get a more in-depth view of TAXII.</p>
+    </div>
+    <div class="col-md-4 text-center">
+        <p>Review developer documentation for TAXII.</p>
+    </div>
+</div>
+
+<!-- Buttons -->
+<div class="row">
+    <div class="col-md-4 text-center">
+        <p><a class="btn btn-primary btn-lg" role="button" href="https://stixproject.github.io/stix-at-oasis.pdf">Announcement »</a></p>
+    </div>
+    <div class="col-md-4 text-center">
+        <p><a class="btn btn-primary btn-lg" role="button" href="/documentation">Documentation »</a></p>
+    </div>
+    <div class="col-md-4 text-center">
+        <p><a class="btn btn-primary btn-lg" role="button" href="/developers">Developers »</a></p>
+    </div>
 </div>
 
 <hr>

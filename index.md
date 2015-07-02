@@ -1,37 +1,62 @@
 ---
-title: TAXII Project Documentation
+title: Trusted Automated eXchange of Indicator Information (TAXII™)
 layout: flat
-tagline: User and Developer documentation for TAXII
+tagline: Enabling Cyber Threat Information Exchange
 no_in_page_title: true
 ---
 
-<h1 class="site-title">TAXII Project Documentation</h1>
+<h2><strong>Trusted Automated eXchange of Indicator Information (TAXII™)</strong></h2>
 
 <div class="jumbotron">
-  <h2><strong>Start here if you're new to TAXII!</strong></h2>
-  <p>Regardless of whether you're an analyst, developer, or manager, we have tutorials, walkthroughs, and exercises to help you become familiar
-  with TAXII.</p>
+  <p>TAXII defines a set of services and message exchanges that enable sharing of actionable cyber threat information across organization and product/service boundaries for the detection, prevention, and mitigation of cyber threats.</p>
+  <p>TAXII is not a specific information sharing initiative, and it does not define trust agreements, governance, or non-technical aspects of cyber threat information sharing. Instead, TAXII enables organizations to easily share the information they choose with the partners they choose, while leveraging existing relationships and systems.</p>
   <p><a class="btn btn-primary btn-lg" role="button" href="/getting-started">Get Started »</a></p>
 </div>
 
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-4 text-center">
+    <h2>Current Release</h2>
+    <p>Click for specifications and more.</p>
+    <p><a class="btn btn-primary btn-lg" role="button" href="https://taxii.mitre.org/specifications/version1.1/">TAXII Version 1.1 »</a></p>
+  </div>
+  <div class="col-md-4 text-center">
+    <h2>Community</h2>
+    <p>Join us to help build this growing, open-source industry effort.</p>
+    <p><a class="btn btn-primary btn-lg" role="button" href="/community">Participate »</a></p>
+</div>
+  <div class="col-md-4 text-center">
+    <h2>Follow the TAXII Blog</h2>
+    <p>The latest TAXII, STIX, CybOX, & MAEC news, straight from the source.</p>
+    <p><a class="btn btn-primary btn-lg" role="button" href="/blog">Follow »</a></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4 text-center">
+    <h2>OASIS</h2>
+    <p>TAXII, STIX, and CybOX are being transitioned to the Organization for the Advancement of Structured Information Standards (OASIS)</p>
+    <p><a class="btn btn-primary btn-lg" role="button" href="https://stixproject.github.io/stix-at-oasis.pdf">Announcement »</a></p>
+  </div>
+
+<div class="col-md-4 text-center">
     <h2>Documentation</h2>
     <p>Now that you have an idea of what TAXII is and how it can be used,
     get a more in-depth view of TAXII.</p>
     <p><a class="btn btn-primary btn-lg" role="button" href="/documentation">Documentation »</a></p>
   </div>
-  <div class="col-md-6">
+  
+<div class="col-md-4 text-center">
     <h2>Developers</h2>
-    <p>You can also see developer documentation for TAXII.</p>
+    <p>Review developer documentation for TAXII.</p>
     <p><a class="btn btn-primary btn-lg" role="button" href="/developers">Developers »</a></p>
   </div>
 </div>
 
-<hr />
+<hr>
 
 <p class="lead text-center">
-	Have questions, comments, or feedback? Want to set up a teleconference or in-person meeting?
+	Have questions, comments, or feedback?
 	<br/>
+
 	<strong>Reach out to us at <a href="mailto:taxii@mitre.org">taxii@mitre.org</a></strong>
 </p>

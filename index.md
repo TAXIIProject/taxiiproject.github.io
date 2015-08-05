@@ -32,9 +32,9 @@ no_in_page_title: true
     <p><a class="btn btn-primary btn-lg" role="button" href="/community">Participate »</a></p>
 </div>
   <div class="col-md-4 text-center">
-    <h2>Follow the TAXII Blog</h2>
+    <h2>Follow the STIX/TAXII Blog</h2>
     <p>The latest TAXII, STIX, CybOX, & MAEC news, straight from the source.</p>
-    <p><a class="btn btn-primary btn-lg" role="button" href="/blog">Follow »</a></p>
+    <p><a class="btn btn-primary btn-lg" role="button" href="http://stixproject.tumblr.com/">Follow »</a></p>
   </div>
 </div>
 

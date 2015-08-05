@@ -3,7 +3,8 @@ layout: flat
 title: TAXII FAQ
 ---
 
-TAXII FAQ are questions and answers to questions that have been asked about the TAXII Specifications.
+TAXII FAQ are questions and answers to questions that have been asked about the TAXII Specifications. 
+For FAQ about TAXII itself, please see the [About Page](/about/#frequently-asked-questions)
 
 New questions, comments, or clarifications can be posted to the TAXII Discussion List or sent to taxii@mitre.org.
 

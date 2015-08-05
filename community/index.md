@@ -20,6 +20,13 @@ Please join us by signing up for the TAXII Community Discussion List and TAXII A
 
 **NOTE:** OASIS will host a new TAXII Discussion List and Archives once the transition is completed. The pre-transition Discussion List Archives will also be retained. 
 
+## Test Server
+The TAXII Test Server is a proof-of-concept deployment of TAXII that enables testing of TAXII 1.1 capabilities. 
+The TAXII Test Server demonstrates one way in which TAXII can be implemented and architected. Many other configurations, architectures, 
+implementations, and deployments of TAXII are possible. More information can be found on the TAXII Test Server's home page.
+
+The TAXII Test Server is available at [taxiitest.mitre.org](http://taxiitest.mitre.org/)
+
 ##TAXII Supporters
 A growing [list](http://stixproject.github.io/supporters/) of products, services, and sharing communities using TAXII and STIX.
 

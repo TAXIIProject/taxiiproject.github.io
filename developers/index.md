@@ -32,5 +32,10 @@ tagline: Developer documentation for TAXII
       <p>java-taxii is a Java library for TAXII Messages and TAXII Clients.</p>
       <a class="btn btn-primary" href="/developers/java-taxii">Go »</a>
     </div>
+    <div class="well">
+      <h4><a href="/developers/repositories">Repositories</a></h4>
+      <p>There are a number of open source repositories for TAXII Related Projects. This is the central landing page for them.</p>
+      <a class="btn btn-primary" href="/developers/repositories">Go »</a>
+    </div>
   </div>
 </div>

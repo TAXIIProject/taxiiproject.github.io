@@ -4,7 +4,7 @@ title: TAXII Community
 ---
 
 ##OASIS Transition
-[DHS](http://www.dhs.gov/office-cybersecurity-and-communications/) has transitions TAXII, 
+[DHS](http://www.dhs.gov/office-cybersecurity-and-communications/) has transitioned TAXII, 
 [STIX](https://github.com/STIXProject/), and [CybOX](https://github.com/CybOXProject/) to 
 [Organization for the Advancement of Structured Information Standards (OASIS)](https://www.oasis-open.org/), 
 a non-profit consortium that drives the development, convergence, and adoption of open standards for the global information society. 
@@ -36,7 +36,7 @@ Organizations and individuals who are not OASIS CTI TC members can provide comme
 * [Archive](https://lists.oasis-open.org/archives/cti-comment/)
 
 ###Pre-transition Archives
-The pre-transition CybOX Discussion List Archives can be found [here](http://making-security-measurable.1364806.n2.nabble.com/CybOX-Discussion-List-Archive-f7579263.html).
+The pre-transition TAXII Discussion List Archives can be found [here](http://making-security-measurable.1364806.n2.nabble.com/TAXII-Discussion-List-Archive-f7579264.html).
 
 ## Test Server
 The TAXII Test Server is a proof-of-concept deployment of TAXII that enables testing of TAXII 1.1 capabilities. 

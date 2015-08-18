@@ -24,7 +24,7 @@ no_in_page_title: true
   <div class="col-md-4 text-center">
     <h2>Current Release</h2>
     <p>Click for specifications and more.</p>
-    <p><a class="btn btn-primary btn-lg" role="button" href="https://taxii.mitre.org/specifications/version1.1/">TAXII Version 1.1 »</a></p>
+    <p><a class="btn btn-primary btn-lg" role="button" href="/releases/1.1/">TAXII Version 1.1 »</a></p>
   </div>
   <div class="col-md-4 text-center">
     <h2>Community</h2>
@@ -58,12 +58,3 @@ no_in_page_title: true
     <p><a class="btn btn-primary btn-lg" role="button" href="/developers">Developers »</a></p>
   </div>
 </div>
-
-<hr>
-
-<p class="lead text-center">
-	Have questions, comments, or feedback?
-	<br/>
-
-	<strong>Reach out to us at <a href="mailto:taxii@mitre.org">taxii@mitre.org</a></strong>
-</p>

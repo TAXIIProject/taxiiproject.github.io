@@ -18,15 +18,13 @@ Everything that the CTI TC does is public and the discussions around the evoluti
 
 * [CTI TC Discussion List Archive](https://lists.oasis-open.org/archives/cti/)
 * [CTI-TAXII Subcommittee List Archive](https://lists.oasis-open.org/archives/cti-taxii/)
+* [TAXII-Discussion-List Archive](http://making-security-measurable.1364806.n2.nabble.com/TAXII-Discussion-List-Archive-f7579264.html) (List is no longer used) 
 
 ###Public Comment List
 Organizations and individuals who are not OASIS CTI TC members may provide comments to the CTI TC via the CTI TC Public Comment List:
 
 * [Subscribe to submit a comment](http://www.oasis-open.org/committees/comments/form.php?wg_abbrev=cti)
 * [Archive](https://lists.oasis-open.org/archives/cti-comment/)
-
-###Pre-transition Archive
-The pre-transition TAXII Discussion List Archives can be found [here](http://making-security-measurable.1364806.n2.nabble.com/TAXII-Discussion-List-Archive-f7579264.html).
 
 ## Test Server
 The TAXII Test Server is a proof-of-concept deployment of TAXII that enables testing of TAXII 1.1 capabilities. 

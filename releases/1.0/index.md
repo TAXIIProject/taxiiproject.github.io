@@ -6,6 +6,8 @@ title: TAXII 1.0
 This page provides information on TAXII 1.0. All information about the version is included 
 in this centralized location. Join the [TAXII Community](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=cti) to participate in the next version of TAXII.
 
+Please note that there is a [newer version of TAXII](/releases/current/)
+
 ## Specifications
 #### TAXII Overview, Version 1.0 [[PDF](TAXII_Overview.pdf)]
 An overview document that defines the primary concepts of TAXII, as well as the organization of TAXII component documents.

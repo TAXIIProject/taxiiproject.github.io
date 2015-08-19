@@ -22,39 +22,16 @@ no_in_page_title: true
 
 <div class="row">
   <div class="col-md-4 text-center">
-    <h2>Current Release</h2>
-    <p>Click for specifications and more.</p>
-    <p><a class="btn btn-primary btn-lg" role="button" href="/releases/1.1/">TAXII Version 1.1 »</a></p>
+    <h2>Get Involved</h2>
+        <p><a href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=cti">Join the OASIS TC</a> to help build this growing, open-source industry effort. <a href="http://stixproject.github.io/supporters/">See who's already</a> using TAXII.</p>
+        <p>Follow the <a href="/taxii2/">TAXII 2</a> discussion!</p>
   </div>
   <div class="col-md-4 text-center">
-    <h2>Community</h2>
-    <p>Join us to help build this growing, open-source industry effort.</p>
-    <p><a class="btn btn-primary btn-lg" role="button" href="/community">Participate »</a></p>
+    <h2>Learn More</h2>
+    <p>After <a href="/getting-started/">Getting Started</a>, dig a little deeper and learn about <a href="/developers/">developer resources</a> and <a href="/documentation">other documentation</a>.</p>
 </div>
   <div class="col-md-4 text-center">
-    <h2>Follow the STIX/TAXII Blog</h2>
-    <p>The latest TAXII, STIX, CybOX, & MAEC news, straight from the source.</p>
-    <p><a class="btn btn-primary btn-lg" role="button" href="http://stixproject.tumblr.com/">Follow »</a></p>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-4 text-center">
-    <h2>OASIS</h2>
-    <p>TAXII, STIX, and CybOX are being transitioned to the Organization for the Advancement of Structured Information Standards (OASIS)</p>
-    <p><a class="btn btn-primary btn-lg" role="button" href="https://stixproject.github.io/stix-at-oasis.pdf">Announcement »</a></p>
-  </div>
-
-<div class="col-md-4 text-center">
-    <h2>Documentation</h2>
-    <p>Now that you have an idea of what TAXII is and how it can be used,
-    get a more in-depth view of TAXII.</p>
-    <p><a class="btn btn-primary btn-lg" role="button" href="/documentation">Documentation »</a></p>
-  </div>
-
-<div class="col-md-4 text-center">
-    <h2>Developers</h2>
-    <p>Review developer documentation for TAXII.</p>
-    <p><a class="btn btn-primary btn-lg" role="button" href="/developers">Developers »</a></p>
+    <h2>Follow Us</h2>
+    <p><a href="http://stixproject.tumblr.com/">Follow our blog</a> to get latest STIX news straight from the source.</p>
   </div>
 </div>

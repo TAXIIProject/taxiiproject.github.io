@@ -20,7 +20,9 @@ The current list of proposals under evaluation is here:
  * Concept Overview: https://github.com/TAXIIProject/TAXII-Specifications/wiki/TAXII-2.0-Concept-Overview
  * Requirements: https://github.com/TAXIIProject/TAXII-Specifications/wiki/TAXII-2.0-Requirements
  * Use Cases: https://github.com/TAXIIProject/TAXII-Specifications/wiki/TAXII-2.0-Use-Cases
-* There are currently no other proposals being evaluated. If you have one, please let us know!
+* [Incremental Improvement Proposal](https://github.com/TAXIIProject/TAXII-Specifications/wiki/Possible-TAXII-:-Incremental-Improvement)
+ * Concept Overview: https://github.com/TAXIIProject/TAXII-Specifications/wiki/Incremental-Improvement-Concept-Overview
+* If you have another proposal, please let us know!
 
 **TAXII 2 Phases**
 

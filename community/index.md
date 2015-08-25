@@ -14,11 +14,15 @@ title: TAXII Community
 * [Key Resources & Contacts](https://stixproject.github.io/oasis-cti-info.html)
 
 ##Discussion Lists & Archives
-Everything that the CTI TC does is public and the discussions around the evolution of the specifications are no exception. Therefore, the CTI TC and CybOX subcommittee member-only lists are publicly archived for access by anyone at the following links:
+Everything that the CTI TC does is public and the discussions around the evolution of the specifications are no exception. Therefore, the CTI TC and TAXII subcommittee member-only lists are publicly archived for access by anyone at the following links:
 
 * [CTI TC Discussion List Archive](https://lists.oasis-open.org/archives/cti/)
 * [CTI-TAXII Subcommittee List Archive](https://lists.oasis-open.org/archives/cti-taxii/)
 * [TAXII-Discussion-List Archive](http://making-security-measurable.1364806.n2.nabble.com/TAXII-Discussion-List-Archive-f7579264.html) (List is no longer used) 
+
+Non-OASIS members can sign up for the public cti-users mailing list
+
+* [CTI Users Info](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=cti#feedback)
 
 ###Public Comment List
 Organizations and individuals who are not OASIS CTI TC members may provide comments to the CTI TC via the CTI TC Public Comment List:

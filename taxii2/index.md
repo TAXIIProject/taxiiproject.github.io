@@ -22,6 +22,7 @@ The current list of proposals under evaluation is here:
  * Use Cases: https://github.com/TAXIIProject/TAXII-Specifications/wiki/TAXII-2.0-Use-Cases
 * [Incremental Improvement Proposal](https://github.com/TAXIIProject/TAXII-Specifications/wiki/Possible-TAXII-:-Incremental-Improvement)
  * Concept Overview: https://github.com/TAXIIProject/TAXII-Specifications/wiki/Incremental-Improvement-Concept-Overview
+* [Trust Group Proposal](http://blog.threatloop.com/post/127598238937/taxii-stix-v20-proposal)
 * If you have another proposal, please let us know!
 
 **TAXII 2 Phases**

@@ -18,6 +18,7 @@ Design artifacts include Use Cases, Requirements, etc.
 * [Formats and Protocols](https://github.com/TAXIIProject/TAXII-Specifications/wiki/TAXII-2.0-Formats-and-Protocols)
 * [TAXII 1.x Pain Points](https://github.com/TAXIIProject/TAXII-Specifications/wiki/TAXII-1.1-1.0-Pain-Points)
 * [Open Questions](https://github.com/TAXIIProject/TAXII-Specifications/wiki/TAXII-2.0-Open-Questions)
+* [Candidate Protocol Bindings] (/docs/taxii-protocols-comparison.xlsx)
 
 ## Current Proposals
 The TAXII Subcommittee (SC) is currently in the process of requesting and evaluating proposals for TAXII 2. 

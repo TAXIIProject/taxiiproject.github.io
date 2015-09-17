@@ -10,6 +10,14 @@ If you'd like to contribute to the conversation, please join the [OASIS CTI TC](
 send an email to the CTI Users list cti-users@lists.oasis-open.org, or send an email to the 
 OASIS CTI TAXII SC co-chairs, Mark Davidson (mdavidson@mitre.org) and Bret Jordan (bret.jordan@bluecoat.com).
 
+## Vision Statement
+> TAXII is an open protocol for the communication of cyber threat information. Focusing on simplicity and scalability, TAXII enables authenticated and secure communication of cyber threat information across products and organizations.
+
+**Open Question(s):**
+
+* Should it be "cyber threat information" or just "threat information"?
+
+
 ## Design Artifacts
 Design artifacts include Use Cases, Requirements, etc.
 

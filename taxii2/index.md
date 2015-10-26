@@ -17,7 +17,6 @@ OASIS CTI TAXII SC co-chairs, Mark Davidson (mdavidson@mitre.org) and Bret Jorda
 
 * Should it be "cyber threat information" or just "threat information"?
 
-
 ## Design Artifacts
 Design artifacts include Use Cases, Requirements, etc.
 
@@ -28,6 +27,16 @@ Design artifacts include Use Cases, Requirements, etc.
 * [Open Questions](https://github.com/TAXIIProject/TAXII-Specifications/wiki/TAXII-2.0-Open-Questions)
 * [Candidate Protocol Bindings] (/docs/taxii-protocols-comparison.xlsx)
 
+## Decisions
+This is a list of discussion topics that appear to have rough consensus in the TAXII SC and can be considered decisions.
+
+* Vision Statement (See above)
+* HTTP as an MTI protocol
+* [REST API] (/taxii2/rest-api/)
+ * Includes "Groups of Channels" as an API Base
+ * Includes DNS SRV record definition
+* [Authentication] (/taxii2/rest-api/)
+
 ## Current Proposals
 The TAXII Subcommittee (SC) is currently in the process of requesting and evaluating proposals for TAXII 2. 
 The current list of proposals under evaluation is here:
@@ -37,20 +46,8 @@ The current list of proposals under evaluation is here:
 * [Incremental Improvement Proposal](https://github.com/TAXIIProject/TAXII-Specifications/wiki/Possible-TAXII-:-Incremental-Improvement)
  * Concept Overview: https://github.com/TAXIIProject/TAXII-Specifications/wiki/Incremental-Improvement-Concept-Overview
 * [Trust Group Proposal](http://blog.threatloop.com/post/127598238937/taxii-stix-v20-proposal)
+* [Notional Query](/taxii2/notional-query-api/)
 * If you have another proposal, please let us know!
-
-## Current Status
-
-This is a rough ordering of very high level work items for the TAXII SC. This list is intended to provide
-some context as to things that have been discussed and things that have yet to be discussed.
-
-- Request for proposals - **In Process**
-- Proposal evaluation - **In Process**
-- Proposal selection
-- Protocol Selection
-- Format Selection
-- Draft specification completion
-- Specification completion
 
 ## Resources
 * OASIS CTI Wiki: https://wiki.oasis-open.org/cti/

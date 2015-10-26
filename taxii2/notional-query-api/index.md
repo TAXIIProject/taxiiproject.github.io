@@ -33,27 +33,33 @@ General principles
 
 CybOX-specific queries
 ======================
-* CybOX observable type: AddressObj (just the IP networking bits)
-  * use cases:
-    0) Have you seen this thing?
-      * query: /api/v0.1/observable/address/ip/<value>/ (where value
-        can be a single IP, an IP range, or a CIDR block)
-        * result: json blob containing a boolean and a list of
-          matching uuids
-    1) Give me everything related to this thing.
-      * query: /api/v0.1/observable/related/<value>/ (where value is a
-        valid uuid)
-        * result: json blob containing a simplified (value-oriented
-          json representation) of datatypes supported by TAXII 2.0
-          Query API (currently AddressObj, FileObj, EmailMessageObj,
-          URIObj, WinRegistryKeyObj) as well as a list of uuids for
-          optional retrieval of raw CybOX
-    2) Give me all the things you've got.
-      * query: /api/v0.1/observable/address/ips/
-        * result: json blob containing a list of dicts like
-          [{'value': '192.168.0.1', 'uuid': 'foobar.com:Object-2a1f9a17-b799-4a17-b4ca-f3cb018ad89f'},]
-  * additional query params
-    * type => list of IPv4, IPv6 addresses
+AddressObj
+----------
+* (just the IP networking bits)
+* use cases:
+
+  0) Have you seen this thing?
+    * query: `/api/v0.1/observable/address/ip/<value>/` (where value
+      can be a single IP, an IP range, or a CIDR block)
+      * result: json blob containing a boolean and a list of matching
+        uuids
+        
+  1) Give me everything related to this thing.
+    * query: `/api/v0.1/observable/related/<value>/` (where value is a
+      valid uuid)
+      * result: json blob containing a simplified (value-oriented json
+        representation) of datatypes supported by TAXII 2.0 Query API
+        (currently AddressObj, FileObj, EmailMessageObj, URIObj,
+        WinRegistryKeyObj) as well as a list of uuids for optional
+        retrieval of raw CybOX
+
+  2) Give me all the things you've got.
+    * query: `/api/v0.1/observable/address/ips/`
+      * result: json blob containing a list of dicts like
+        `[{'value': '192.168.0.1', 'uuid': 'foobar.com:Object-2a1f9a17-b799-4a17-b4ca-f3cb018ad89f'},]`
+
+* additional query params
+  * type => list of IPv4, IPv6 addresses
 
 * CybOX observable type: FileObj (initially, just hashes)
   * use cases:

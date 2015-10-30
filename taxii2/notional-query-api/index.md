@@ -27,6 +27,19 @@ General principles
   * feed_producers => list of feed producers
   * output_format => json, oasis (raw STIX/CybOX)
 
+Query scoping
+=============
+* Use the optional broadcast query parameter to allow targeting a
+  query *either* at a single TAXII endpoint *or* as a broadcast query
+  against selected trustgroup(s), in which case the TAXII endpoint
+  receiving the broadcast query request will act as a proxy,
+  forwarding the query to all the hosts implied by the specified
+  trustgroup parameter, accumulating the result set, and passing it
+  back to the query client.
+  * broadcast => local, single trustgroup, list of trustgroups, or 'all'
+    * if broadcast flag is omitted, assume it's a local query
+
+
 CybOX-specific queries
 ======================
 AddressObj (just the IP networking bits)

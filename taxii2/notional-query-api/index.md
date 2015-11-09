@@ -37,7 +37,47 @@ Query scoping
   trustgroup parameter, accumulating the result set, and passing it
   back to the query client.
   * broadcast => local, single trustgroup, list of trustgroups, or 'all'
-    * if broadcast flag is omitted, assume it's a local query
+  * if broadcast flag is omitted, assume it's a local query
+
+Immutability of objects under a URL-based object id scheme
+==========================================================
+* If we move to using URLs as object ids, the underlying *data* a
+  URL-based object id refers to *MUST* be treated as immutable. Here's
+  why:
+* Let's take a strawman Indicator. Currently, the object id would be
+  something like: `example.org:indicator-14adf303-bd57-4dad-bf84-4ba8e8ef175c`
+* If we move to URLs, the object id would be something like: `taxii.example.org/api/query/indicators/14adf303-bd57-4dad-bf84-4ba8e8ef175c`
+* Now, why should the object behind the URL be immutable? Let's say
+  I'm at Org A and I generate a Report object that links to the Org B
+  Indicator (above). I'm making an direct assertion regarding that
+  *particular* Indicator version. Now, if Org B goes and publishes a
+  revision of the original Indicator *under the same URL*, it creates
+  a problem for Org A. Do we still support our original assertion from
+  our Report, given that Org B are effectively shifting the ground
+  under our feet? Maybe, who knows? Definitely problematic, QED these
+  things should be immutable.
+
+Implications for object versioning
+==================================
+* Object versioning has long been a painful subject. Mark and I came
+  up with an interesting approach. (Again, assuming a REST-based TAXII
+  Query API.)
+* One can envisage a REST-based approach where I can refer to an
+  object like this: `taxii.example.org/api/query/indicators/14adf303-bd57-4dad-bf84-4ba8e8ef175c/latest/`
+* ...and get the latest revision of the object.
+* Additionally, one can envisage a REST-based approach where I can
+  refer to an object like this: `taxii.example.org/api/query/indicators/14adf303-bd57-4dad-bf84-4ba8e8ef175c/history/`
+* ...and get back a JSON blob something like this:
+`[{'version': 0, 'object_id':
+'taxii.example.org/api/query/indicators/14adf303-bd57-4dad-bf84-4ba8e8ef175c',
+'changelog': 'initial publication of indicator'},
+{'version': 1, 'object_id':
+'taxii.example.org/api/query/indicators/14adf303-bd57-4dad-bf84-4ba8e8ef175d',
+'changelog': 'typo fix'},
+{'version': 2, 'object_id':
+'taxii.example.org/api/query/indicators/14adf303-bd57-4dad-bf84-4ba8e8ef175e',
+'changelog': 'revoking indicator, this was actually innocuous'}]`
+* This is an intriguing approach to the age-old versioning problem.
 
 
 CybOX-specific queries

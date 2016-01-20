@@ -4,18 +4,18 @@ layout: flat
 tagline: Sample usage for TAXII
 ---
 
-## On this page
-This page contains sample HTTP Request/Responses for TAXII. Please note that these examples do not demonstrate the
-full spectrum of TAXII capabilities. Each type of TAXII Message is listed at least once.
+This page contains sample HTTP Request/Responses for TAXII. Note that these examples do not demonstrate the full spectrum of TAXII capabilities. Each type of TAXII Message is listed at least once. 
+
+Please send any comments or questions to taxii@mitre.org.
 
 
 ## TAXII Services
 A **TAXII Service** is a single unit of capability within TAXII. TAXII defines four TAXII Services:
 
-* **Inbox Service** - Used by a TAXII Client to push information to a TAXII Server
-* **Poll Service** - Used by a TAXII Client to request information from a TAXII Server
+* **Inbox Service** - Used by a TAXII Client to push information to a TAXII Server.
+* **Poll Service** - Used by a TAXII Client to request information from a TAXII Server.
 * **Collection Management Service** - Used by a TAXII Client to request information about available **Data Collections** or request a subscription.
-* **Discovery Service** - Used by a TAXII Client to discover available TAXII Services (e.g., "An Inbox Service is located at http://example.com/inbox_service ")
+* **Discovery Service** - Used by a TAXII Client to discover available TAXII Services (e.g., "An Inbox Service is located at http://example.com/inbox_service ").
 
 ## Data Collections
 A TAXII **Data Collection** is a grouping of cyber threat information that can be exchanged using TAXII. 
@@ -45,11 +45,11 @@ Information Consumers. This section attempts to clarify these distinctions.
 Two scenarios are illustrated in attempt to clarify the information above:
 
 * Scenario: A **TAXII Client** connects to a **TAXII Server** to send information (TAXII Inbox Service): 
- * The **TAXII Client** is an **Information Producer**
- * The **TAXII Server** is an **Information Consumer**
+ * The **TAXII Client** is an **Information Producer**.
+ * The **TAXII Server** is an **Information Consumer**.
 * Scenario: A **TAXII Client** connects to a **TAXII Server** to request information (TAXII Poll Service): 
- * The **TAXII Client** is an **Information Consumer**
- * The **TAXII Server** is an **Information Producer** 
+ * The **TAXII Client** is an **Information Consumer**.
+ * The **TAXII Server** is an **Information Producer**.
 
 
 ## TAXII 1.1 Discovery Service

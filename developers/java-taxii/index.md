@@ -3,7 +3,7 @@ layout: flat
 title: java-taxii
 ---
 
-Java library for <a href="http://taxii.mitre.org" target="_blank">TAXII</a>.
+Java library for [TAXII](http://taxiiproject.github.io/releases/).
 
 This library provides:
 

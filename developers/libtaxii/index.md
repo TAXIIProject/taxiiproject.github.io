@@ -3,7 +3,7 @@ layout: flat
 title: libtaxii
 ---
 
-Python library for <a href="http://taxii.mitre.org" target="_blank">TAXII</a>.
+Python library for [TAXII](http://taxiiproject.github.io/releases/).
 
 This library provides:
 

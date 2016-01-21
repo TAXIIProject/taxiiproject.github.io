@@ -8,7 +8,7 @@ tagline: Developer documentation for TAXII
   <div class="col-md-6 getting-started-left">
     <div class="well">
       <h4><a href="/developers/libtaxii">libtaxii</a></h4>
-      <p>libtaxii is a Python library for TAXII Messages and TAXII Clients</p>
+      <p>libtaxii is a Python library for TAXII Messages and TAXII Clients.</p>
       <a class="btn btn-primary" href="/developers/libtaxii">Go »</a>
     </div>
     

@@ -3,12 +3,12 @@ layout: flat
 title: YETI
 ---
 
-An example <a href="http://taxii.mitre.org" target="_blank">TAXII</a> server.
+An example [TAXII](http://taxiiproject.github.io/releases/) server.
 
 YETI:
 
-* Enables rapid prototyping of and testing of TAXII Servers and TAXII Server functionality
-* Demonstrates using django-taxii-services to create TAXII Server applications
+* Enables rapid prototyping of and testing of TAXII Servers and TAXII Server functionality.
+* Demonstrates using django-taxii-services to create TAXII Server applications.
 
 ### Downloads
 

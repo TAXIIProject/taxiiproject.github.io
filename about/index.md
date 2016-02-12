@@ -82,7 +82,6 @@ TAXII has been transitioned to OASIS! See the [Community](http://taxiiproject.gi
 
 ## Frequently Asked Questions
 
-### General
 #### What is TAXII?
 TAXII is a community effort to standardize the trusted, automated exchange of cyber threat information. TAXII defines a set of services and message exchanges that, when implemented, enable sharing of actionable cyber threat information across organization and product/service boundaries for the detection, prevention, and mitigation of cyber threats. 
 

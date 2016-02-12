@@ -75,10 +75,11 @@ TAXII is designed to integrate with existing sharing agreements, including acces
 
 
 ## TAXII Community
-TAXII has been transitioned to OASIS! See the [Community](http://taxiiproject.github.io/community/) page for more information. A few shortcuts: 
-- [OASIS Technical Committee](https://www.oasis-open.org/committees/cti) — where TAXII development happens
-- [Mailing Lists](http://taxiiproject.github.io/community/#discussion-lists-amp-archives) — stay up to date on development and usage
-- [Developer Resources](http://taxiiproject.github.io/developers) — the central location for development of the specifications, tools, and documentation (including this site)
+TAXII has been transitioned to OASIS. See the [Community](http://taxiiproject.github.io/community/) page for more information. 
+A few shortcuts: 
+- [OASIS Technical Committee](https://www.oasis-open.org/committees/cti) — where TAXII development happens.
+- [Mailing Lists](http://taxiiproject.github.io/community/#discussion-lists-amp-archives) — stay up to date on development and usage.
+- [Developer Resources](http://taxiiproject.github.io/developers) — the central location for development of the specifications, tools, and documentation (including this site).
 
 ## Frequently Asked Questions
 

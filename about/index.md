@@ -75,7 +75,7 @@ TAXII is designed to integrate with existing sharing agreements, including acces
 
 
 ## TAXII Community
-TAXII has been transitioned to OASIS! See the [Community](http://taxiiproject.github.io/community/) page for more information. 
+TAXII has been transitioned to OASIS. See the [Community](http://taxiiproject.github.io/community/) page for more information. 
 A few shortcuts: 
 - [OASIS Technical Committee](https://www.oasis-open.org/committees/cti) — where TAXII development happens.
 - [Mailing Lists](http://taxiiproject.github.io/community/#discussion-lists-amp-archives) — stay up to date on development and usage.

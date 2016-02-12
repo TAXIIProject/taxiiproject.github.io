@@ -78,10 +78,14 @@ TAXII is designed to integrate with existing sharing agreements, including acces
 TAXII has been transitioned to [OASIS](https://www.oasis-open.org/committees/cti). See the [Community](http://taxiiproject.github.io/community/) page for details. 
 
 Some shortcuts:  
-- [OASIS Cyber Threat Intelligence (CTI) Technical Committee (TC)](https://www.oasis-open.org/committees/cti) - TAXII is developed by the TAXII subcommittee of the CTI TC. 
-- [Mailing Lists](http://taxiiproject.github.io/community/#discussion-lists-amp-archives) - Stay up-to-date on development and usage. 
-- [Developer Resources](http://taxiiproject.github.io/developers) - The central location for development of the specifications, tools, and documentation (including this site). 
-- [STIX/TAXII Supporters](http://stixproject.github.io/supporters) - A growing list of products, services, and sharing communities using TAXII and STIX. 
+
+[OASIS Cyber Threat Intelligence (CTI) Technical Committee (TC)](https://www.oasis-open.org/committees/cti) - TAXII is developed by the TAXII subcommittee of the CTI TC. 
+
+[Mailing Lists](http://taxiiproject.github.io/community/#discussion-lists-amp-archives) - Stay up-to-date on development and usage. 
+
+[Developer Resources](http://taxiiproject.github.io/developers) - The central location for development of the specifications, tools, and documentation (including this site). 
+
+[STIX/TAXII Supporters](http://stixproject.github.io/supporters) - A growing list of products, services, and sharing communities using TAXII and STIX. 
 
 ## Frequently Asked Questions
 

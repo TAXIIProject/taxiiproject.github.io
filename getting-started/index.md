@@ -1,15 +1,14 @@
 ---
 title: Getting Started
 layout: flat
-tagline: User and Developer documentation for TAXII
 ---
 
 <div class="row">
     <div class="well col-md-6">
-      <h4><a href="http://makingsecuritymeasurable.mitre.org/docs/taxii-intro-handout.pdf" target="_blank">TAXII Brochure</a></h4>
-      <p>The TAXII Brochure provides an overview of why TAXII was developed, what problems it solves, and how it solves those problems. 
-      The TAXII Brochure (also called a "2-pager") is distributed at conferences.</p>
-      <a class="btn btn-primary" href="http://makingsecuritymeasurable.mitre.org/docs/taxii-intro-handout.pdf" target="_blank">Go »</a>
+      <h4><a href="/about/" target="_blank">About TAXII</a></h4>
+      <p>The About TAXII page provides an overview of why TAXII was developed, what problems it solves, and how it solves those problems. 
+      Also included are answers to some general frequently asked questions about the project and descriptions of TAXII's relationships to other standards efforts.</p>
+      <a class="btn btn-primary" href="/about/" target="_blank">Go »</a>
     </div>
   </div>
   
@@ -22,11 +21,3 @@ tagline: User and Developer documentation for TAXII
   </div>
 </div>
 
-<div class="row">
-  <div class="well col-md-6">
-    <h4><a href="http://stix.mitre.org/training/" target="_blank">Training Materials</a></h4>
-    <p>The TAXII Training Materials (hosted in conjunction with the STIX Training Materials) contain a variety of presentations
-     and classroom exercises that have been presented at various times and places .</p>
-    <a class="btn btn-primary" href="http://stix.mitre.org/training/" target="_blank">Go »</a>
-  </div>
-</div>

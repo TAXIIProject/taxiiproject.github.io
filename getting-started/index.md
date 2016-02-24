@@ -7,7 +7,7 @@ layout: flat
     <div class="well col-md-6">
       <h4><a href="/about/" target="_blank">About TAXII</a></h4>
       <p>The About TAXII page provides an overview of why TAXII was developed, what problems it solves, and how it solves those problems. 
-      Also included are answers to some general frequently asked questions about the project and descriptions of relationships to other standards efforts.</p>
+      Also included are answers to some general frequently asked questions about the project and descriptions of TAXII's relationships to other standards efforts.</p>
       <a class="btn btn-primary" href="/about/" target="_blank">Go »</a>
     </div>
   </div>

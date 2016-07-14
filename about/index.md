@@ -11,7 +11,7 @@ Sharing cyber-risk intelligence and defensive strategies has become imperative i
 
 By understanding adversaries’ behavior against a range of targets over a period of time, defenders gain valuable insights into an attacker’s overall goals and strategies. 
 
-TAXII empowers organizations share situational awareness about threats with the partners they choose, while leveraging existing relationships and systems.
+TAXII empowers organizations to share situational awareness about threats with the partners they choose, while leveraging existing relationships and systems.
 
 > TAXII is the preferred exchange mechanism for [Structured Threat Information eXpression (STIX™) ](https://stixproject.github.io).
 

@@ -86,7 +86,7 @@ Seeking a solution to current threat sharing challenges not addressed by existin
 technologies, DHS funded MITRE to develop a cyber threat information sharing capability to meet the
 following goals:
 
-* Enable timely and secure sharing of threat information within and between and within cyber
+* Enable timely and secure sharing of threat information within and between cyber
 defender communities
 * Enable robust, secure, high-volume exchanges of expressive sets of cyber threat
 information.
@@ -111,7 +111,7 @@ partners they choose all while using a single, common, set of tools.
 ## Scope
 TAXII is intended for use by any cyber threat information producers, cyber threat information
 consumers, and developers of cyber threat management capabilities, including government, industry,
-and academia. TAXII supports all widely used threat sharing models, including hub-and-spoke, peer-topeer,
+and academia. TAXII supports all widely used threat sharing models, including hub-and-spoke, peer-to-peer,
 and source-subscriber.
 
 **Hub and Spoke** - In a hub and spoke information sharing architecture, one organization acts as a
@@ -178,7 +178,7 @@ transporting TAXII Messages using a different network protocol.
 **Query Format Specification** - A Query Format Specification defines a query format that can be used to
 define query expressions that are used within TAXII Messages to provide characteristics against which
 content records are compared. Query Expressions allow requestors to collect only content that meets
-these criteria. A Query Format Specification my include how to express the given format in a particular
+these criteria. A Query Format Specification may include how to express the given format in a particular
 Message Binding, or this may be handled by a separate Message Binding Specification.
 
 **Content Binding Reference** - The Content Binding Reference is a reference document that lists canonical
@@ -194,8 +194,8 @@ Figure 4 shows the relationship between the TAXII specifications.
 Figure 4 - TAXII Specification Hierarchy
 </center>
 
-Current versions of these specifications and documents can be found on the TAXII website,
-http://taxii.mitre.org
+Current versions of these specifications and documents can be found on the TAXII website, 
+http://taxiiproject.github.io/
 
 ## Benefits
 
@@ -223,8 +223,8 @@ automation.
 Ultimately, the result is improved situational awareness and better cyber defense against today’s
 advanced adversaries. Cyber defenders that leverage TAXII have access to more threat data to help
 correlate and track adversary activity, and a growing number of organizations can develop cyber
-intelligence capabilities. TAXII's benefits can be help sharing participants regardless of the sharing
-model or security requirements
+intelligence capabilities. TAXII's benefits can help sharing participants regardless of the sharing
+model or security requirements.
 
 ## Current Status
 To date, the following TAXII development activities have taken place:

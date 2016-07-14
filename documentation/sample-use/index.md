@@ -15,7 +15,7 @@ A **TAXII Service** is a single unit of capability within TAXII. TAXII defines f
 * **Inbox Service** - Used by a TAXII Client to push information to a TAXII Server.
 * **Poll Service** - Used by a TAXII Client to request information from a TAXII Server.
 * **Collection Management Service** - Used by a TAXII Client to request information about available **Data Collections** or request a subscription.
-* **Discovery Service** - Used by a TAXII Client to discover available TAXII Services (e.g., "An Inbox Service is located at http://example.com/inbox_service ").
+* **Discovery Service** - Used by a TAXII Client to discover available TAXII Services (e.g., "An Inbox Service is located at http://example.com/inbox_service").
 
 ## Data Collections
 A TAXII **Data Collection** is a grouping of cyber threat information that can be exchanged using TAXII. 

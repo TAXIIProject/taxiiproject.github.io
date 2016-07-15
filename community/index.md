@@ -18,7 +18,7 @@ Everything that the CTI TC does is public and the discussions around the evoluti
 
 * [CTI TC Discussion List Archive](https://lists.oasis-open.org/archives/cti/)
 * [CTI-TAXII Subcommittee List Archive](https://lists.oasis-open.org/archives/cti-taxii/)
-* [TAXII-Discussion-List Archive](http://making-security-measurable.1364806.n2.nabble.com/TAXII-Discussion-List-Archive-f7579264.html) (List is no longer used) 
+* [TAXII-Discussion-List Archive](http://making-security-measurable.1364806.n2.nabble.com/TAXII-Discussion-List-Archive-f7579264.html) (list is no longer used) 
 
 Non-OASIS members can sign up for the public cti-users mailing list:
 
@@ -38,7 +38,10 @@ implementations, and deployments of TAXII are possible. More information can be 
 The TAXII Test Server is available at [taxiitest.mitre.org](http://taxiitest.mitre.org/)
 
 ##TAXII Supporters
-A growing [list](http://stixproject.github.io/supporters/) of products, services, and sharing communities using TAXII and STIX.
+A growing list of products and open source projects using [TAXII](http://taxiiproject.github.io/), [STIX](http://stixproject.github.io/), and [CybOX](http://cyboxproject.github.io/).
 
-* [By User Community](http://stixproject.github.io/supporters/#user-communities)
-* [By Product/Service](http://stixproject.github.io/supporters/#products-and-services)
+* [By Product](https://wiki.oasis-open.org/cti/Products) 
+* [By Open Source Project](https://wiki.oasis-open.org/cti/Open%20Source%20Projects) 
+
+Go the OASIS CTI [registration form](https://www.surveymonkey.com/r/oasis-cti-tc-supporter-registration).
+

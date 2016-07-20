@@ -129,6 +129,7 @@ A content provider is not required to store content using different bindings, an
 In the XML binding specification an element might be required under some circumstances but optional in others, but in the schema it always appears as optional. For example, in a "Subscription Management Response Message" the "Subscription" field is optional if the requested action is STATUS and otherwise is required, yet the XML binding says "0-n" for the count. Due to the limits of XML schema definitions, it was necessary to use the more flexible definition, even though it would appear exactly once for the other action types. Remember that the XML schema is not considered to be normative — it is present as an aid only, but it is known that it is somewhat more permissive than the specification.
 
 ## Relationships to Other Efforts
+
 #### STIX
 [Structured Threat Information eXpression (STIX™)](http://stixproject.github.io/) is a structured language for describing cyber threat information so it can be shared, stored, and analyzed in a consistent manner. STIX is one payload that TAXII can convey. STIX represents cyber threat information in a standardized and structured manner. STIX characterizes what is being shared, while TAXII defines how the STIX payload is shared.
 

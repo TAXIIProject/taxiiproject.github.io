@@ -53,6 +53,7 @@ Two scenarios are illustrated in attempt to clarify the information above:
 
 
 ## TAXII 1.1 Discovery Service
+
 ### Sample TAXII 1.1 Discovery Request
 ```http
 POST http://taxiitest.mitre.org/services/discovery/ HTTP/1.1
@@ -111,6 +112,7 @@ Proxy-Connection: keep-alive
 ```
 
 ## TAXII 1.1 Inbox Service
+
 ### Sample TAXII 1.1 Inbox Message
 ```http
 POST http://taxiitest.mitre.org/services/inbox/default/ HTTP/1.1
@@ -173,6 +175,7 @@ Proxy-Connection: keep-alive
 ```
 
 ## TAXII 1.1 Poll Service
+
 ### Sample TAXII 1.1 Poll Request
 ```http
 POST http://taxiitest.mitre.org/services/poll/ HTTP/1.1
@@ -268,6 +271,7 @@ Proxy-Connection: keep-alive
 ```
 
 ## TAXII 1.1 Collection Management Service
+
 ### Sample TAXII 1.1 Collection Information Request
 ```http
 POST http://taxiitest.mitre.org/services/collection-management/ HTTP/1.1

@@ -4,8 +4,8 @@ title: TAXII Community
 ---
 
 
-##OASIS Transition
-[DHS](http://www.dhs.gov/office-cybersecurity-and-communications/) transitioned TAXII, [STIX](https://github.com/STIXProject/), and [CybOX](https://github.com/CybOXProject/) to [Organization for the Advancement of Structured Information Standards (OASIS)](https://www.oasis-open.org/), a non-profit consortium that drives the development, convergence, and adoption of open standards for the global information society. The [Cyber Threat Intelligence (CTI) Technical Committee (TC)] (https://www.oasis-open.org/committees/cti) now leads the ongoing development of these standards. Organizations and individuals that wish to play a regular and active role in the shaping of these standards should consider joining OASIS and the CTI TC. Learn more about the transition:
+## OASIS Transition
+[DHS](http://www.dhs.gov/office-cybersecurity-and-communications/) transitioned TAXII, [STIX](https://github.com/STIXProject/), and [CybOX](https://github.com/CybOXProject/) to [Organization for the Advancement of Structured Information Standards (OASIS)](https://www.oasis-open.org/), a non-profit consortium that drives the development, convergence, and adoption of open standards for the global information society. The [Cyber Threat Intelligence (CTI) Technical Committee (TC)](https://www.oasis-open.org/committees/cti) now leads the ongoing development of these standards. Organizations and individuals that wish to play a regular and active role in the shaping of these standards should consider joining OASIS and the CTI TC. Learn more about the transition:
 
 * [Cyber Threat Intelligence (CTI) Technical Committee (TC)](https://www.oasis-open.org/committees/cti)
 * [Announcement](http://stixproject.tumblr.com/post/117006597637/dhs-leads-effort-to-transition-automated)
@@ -13,7 +13,7 @@ title: TAXII Community
 * [OASIS Overview](https://stixproject.github.io/stix-at-oasis.pdf)
 * [Key Resources & Contacts](https://stixproject.github.io/oasis-cti-info.html)
 
-##Discussion Lists & Archives
+## Discussion Lists & Archives
 Everything that the CTI TC does is public and the discussions around the evolution of the specifications are no exception. Therefore, the CTI TC and TAXII subcommittee member-only lists are publicly archived for access by anyone at the following links:
 
 * [CTI TC Discussion List Archive](https://lists.oasis-open.org/archives/cti/)
@@ -24,7 +24,7 @@ Non-OASIS members can sign up for the public cti-users mailing list:
 
 * [CTI Users Info](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=cti#feedback)
 
-###Public Comment List
+### Public Comment List
 Organizations and individuals who are not OASIS CTI TC members may provide comments to the CTI TC via the CTI TC Public Comment List:
 
 * [Subscribe to submit a comment](http://www.oasis-open.org/committees/comments/form.php?wg_abbrev=cti)
@@ -37,7 +37,7 @@ implementations, and deployments of TAXII are possible. More information can be 
 
 The TAXII Test Server is available at [taxiitest.mitre.org](http://taxiitest.mitre.org/)
 
-##TAXII Supporters
+## TAXII Supporters
 A growing list of products and open source projects using [TAXII](http://taxiiproject.github.io/), [STIX](http://stixproject.github.io/), and [CybOX](http://cyboxproject.github.io/).
 
 * [By Product](https://wiki.oasis-open.org/cti/Products) 

@@ -3,9 +3,9 @@ layout: flat
 title: TAXII Specifications FAQs
 ---
 
-Answers to frequently asked questions about the [TAXII Specifications](http://taxiiproject.github.io/releases/) are included below. See the [About Page](/about/#frequently-asked-questions) page for general FAQs about TAXII.
+Answers to frequently asked questions about the [TAXII Specifications](/releases/) are included below. See the [About Page](/about/#frequently-asked-questions) page for general FAQs about TAXII.
 
-Please send any comments or questions to taxii@mitre.org.
+Please send any comments or questions to [taxii@mitre.org](mailto:taxii@mitre.org).
 
 ## TAXII (General)
 

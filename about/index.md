@@ -3,7 +3,7 @@ title: About TAXII
 layout: flat
 ---
 
-[Trusted Automated eXchange of Indicator Information (TAXII™)](http://taxiiproject.github.io/releases/) is a free and open transport mechanism that standardizes the automated exchange of cyber threat information. 
+[Trusted Automated eXchange of Indicator Information (TAXII™)](/releases) is a free and open transport mechanism that standardizes the automated exchange of cyber threat information. 
 
 
 ### Impetus
@@ -13,7 +13,7 @@ By understanding adversaries’ behavior against a range of targets over a perio
 
 TAXII empowers organizations to share situational awareness about threats with the partners they choose, while leveraging existing relationships and systems.
 
-> TAXII is the preferred exchange mechanism for [Structured Threat Information eXpression (STIX™) ](https://stixproject.github.io).
+> TAXII is the preferred exchange mechanism for [Structured Threat Information eXpression (STIX™)](https://stixproject.github.io).
 
 ### Goals 
 - Enable timely and secure sharing of threat information in cyber defender communities.
@@ -81,9 +81,9 @@ Some shortcuts:
 
 [OASIS Cyber Threat Intelligence (CTI) Technical Committee (TC)](https://www.oasis-open.org/committees/cti) - TAXII is developed by the TAXII subcommittee of the CTI TC. 
 
-[Mailing Lists](http://taxiiproject.github.io/community/#discussion-lists-amp-archives) - Stay up-to-date on development and usage. 
+[Mailing Lists](/community/#discussion-lists-amp-archives) - Stay up-to-date on development and usage. 
 
-[Developer Resources](http://taxiiproject.github.io/developers) - The central location for development of the specifications, tools, and documentation (including this site). 
+[Developer Resources](/developers) - The central location for development of the specifications, tools, and documentation (including this site). 
 
 [STIX/TAXII Supporters](http://stixproject.github.io/supporters) - A growing list of products, services, and sharing communities using TAXII and STIX. 
 
@@ -97,10 +97,10 @@ TAXII is not a specific information sharing initiative, and it does not define t
 Instead, TAXII empowers organizations to achieve improved situational awareness about emerging threats, and enables organizations to easily share the information they choose with the partners they choose, while leveraging existing relationships and systems.
 
 #### Where can I get TAXII?
-See [TAXII Releases](http://taxiiproject.github.io/releases/).
+See [TAXII Releases](/releases/).
 
 #### How is TAXII licensed?
-See the [Terms of Use](http://taxiiproject.github.io/legal/).
+See the [Terms of Use](/legal/).
 
 #### Who is using TAXII?
 [Many organizations](http://stixproject.github.io/supporters) have announced support for TAXII and STIX, and are listed on our [STIX/TAXII Supporters](http://stixproject.github.io/supporters) page on the STIX website. Please use our [submission form](http://goo.gl/forms/jKQH7a6TfW) to request that your organization’s products and services be added to the list.

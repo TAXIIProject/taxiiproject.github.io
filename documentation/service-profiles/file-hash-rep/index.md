@@ -55,7 +55,7 @@ An important step is mapping the source information to STIX. The [STIX Documenta
 * The Indicator will have an Indicated TTP (tactics, techniques, and procedures)
 * The Indicated TTP will be "Malicious File"
 * A Confidence relationship between the Indicator and the Indicated TTP will assert how confident the provider, "Mark's Malware Metadata Mart", is that the file is malicious
- * The confidence value will be one of High, Medium, Low, None, or Unknown.
+  * The confidence value will be one of High, Medium, Low, None, or Unknown.
 
 #### Versioning
 In addition to MD5 Hash and Confidence, an implementation needs to keep track of certain versioning information. This information includes ID and timestamp for the Indicator and

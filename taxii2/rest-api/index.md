@@ -98,39 +98,39 @@ From the API-Base, the following URLs are valid:
 In this section, each URL is specified, along with a set of possible responses.
 
 * `GET [API-Base]/channels/` - Returns a list of channels
- * HTTP 200 - Returns a list of channels accessible by the requestor (e.g., channel-list message)
- * HTTP 400 - Invalid request
- * HTTP 403 - Permission denied, you are not allowed to view the channel list
+  * HTTP 200 - Returns a list of channels accessible by the requestor (e.g., channel-list message)
+  * HTTP 400 - Invalid request
+  * HTTP 403 - Permission denied, you are not allowed to view the channel list
 * `GET [API-Base]/channels/<channel-name>/` - Returns info about a specific channel
- * HTTP 200 - Returns channel information (e.g., channel-info message)
- * HTTP 400 - Invalid request
- * HTTP 403 - Permission denied, you are not allowed to view this channel's information
+  * HTTP 200 - Returns channel information (e.g., channel-info message)
+  * HTTP 400 - Invalid request
+  * HTTP 403 - Permission denied, you are not allowed to view this channel's information
 * `POST <channel object> to [API-Base]/channels/` - Create a new channel
- * HTTP 201 - Message accepted, channel will be created
- * HTTP 400 - Invalid request, something wrong with your channel structure
- * HTTP 403 - Permission denied, you are not allowed to make new channels
- * HTTP 501 - Not implemented, this server has a fixed set of available channels
+  * HTTP 201 - Message accepted, channel will be created
+  * HTTP 400 - Invalid request, something wrong with your channel structure
+  * HTTP 403 - Permission denied, you are not allowed to make new channels
+  * HTTP 501 - Not implemented, this server has a fixed set of available channels
 * `POST <taxii message(s)> to /channels/<channel-name>/` - Add TAXII message(s) to the channel
- * HTTP 202 - Message(s) accepted, message will be transmitted to the channel
- * HTTP 400 - Invalid request, something wrong with your message structure
- * HTTP 403 - Permission denied, you can not post to this channel
- * HTTP 501 - Not implemented (This is a read only channel)
+  * HTTP 202 - Message(s) accepted, message will be transmitted to the channel
+  * HTTP 400 - Invalid request, something wrong with your message structure
+  * HTTP 403 - Permission denied, you can not post to this channel
+  * HTTP 501 - Not implemented (This is a read only channel)
 * `GET /channels/<channel-name>/[?param1=val1...]` - Get or Create a subscription and get TAXII messages from the channel with the specified filter. For more on subscriptions, see below.
- * HTTP 200 - Response fulfilled
- * HTTP 204 - No new data
- * HTTP 400 - Invalid request
- * HTTP 403 - Permission denied
- * HTTP 501 - Not implemented (This is a write-only channel)
+  * HTTP 200 - Response fulfilled
+  * HTTP 204 - No new data
+  * HTTP 400 - Invalid request
+  * HTTP 403 - Permission denied
+  * HTTP 501 - Not implemented (This is a write-only channel)
 
 **Open Questions:**
 
 * If we permit POSTing multiple messages, how are different message dispositions handled? (e.g., message 1 was accepted, message 2 was re-written, and message 3 was rejected)
 * How is content negotiated? At the channel level, at the message level? Something else?
- * MSD Opinion: Should try to leverage HTTP Content-Types/MIME Types
+  * MSD Opinion: Should try to leverage HTTP Content-Types/MIME Types
 * Should there be update and destroy (PUT and DELETE)? Renaming channels could be complicated and have weird side effects given the name is in the URL, but changing permissions for existing channels might be a requirement.
 * We should think about long polling vs. other options
- * https://developer.mozilla.org/en-US/docs/Web/API/EventSource
- * WebSockets? (Though, WebSockets are a completely different protocol)
+  * [EventSource](https://developer.mozilla.org/en-US/docs/Web/API/EventSource)
+  * WebSockets? (Though, WebSockets are a completely different protocol)
 * Should the REST API include mechanisms for modifying permissions, or should that be an implementation-specific thing?
 * Should getting messages be a GET? These responses shouldn't be cached, so maybe not.
 

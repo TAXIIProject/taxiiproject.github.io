@@ -6,7 +6,7 @@ tagline: Sample usage for TAXII
 
 This page contains sample HTTP Request/Responses for TAXII. Note that these examples do not demonstrate the full spectrum of TAXII capabilities. Each type of TAXII Message is listed at least once. 
 
-Please send any comments or questions to taxii@mitre.org.
+Please send any comments or questions to [taxii@mitre.org](mailto:taxii@mitre.org).
 
 
 ## TAXII Services
@@ -32,24 +32,24 @@ A point of confusion that may come up is how TAXII Clients and/or TAXII Servers 
 Information Consumers. This section attempts to clarify these distinctions.
 
 * TAXII Servers and Clients:
- * A **TAXII Server** is TAXII Software that offers one or more **TAXII Services**. A TAXII Server listens for connections from TAXII Clients.
- * A **TAXII Client** is TAXII Software that connects to one or more **TAXII Services**. A TAXII Client initiates connections with a TAXII Server.
- * The **TAXII Client** and **TAXII Server** distinction is based on computer networking. 
- * Note that **a single piece of software can be both** a TAXII Client and TAXII Server.
+  * A **TAXII Server** is TAXII Software that offers one or more **TAXII Services**. A TAXII Server listens for connections from TAXII Clients.
+  * A **TAXII Client** is TAXII Software that connects to one or more **TAXII Services**. A TAXII Client initiates connections with a TAXII Server.
+  * The **TAXII Client** and **TAXII Server** distinction is based on computer networking. 
+  * Note that **a single piece of software can be both** a TAXII Client and TAXII Server.
 * Information Producers and Consumers: 
- * An **Information Producer** is software that sends information to another system.
- * An **Information Consumer** is software that receives information from another system.
- * The **Information Producer** and **Information Consumer** distinction is based on information flows.
- * Note that **a single piece of software can be both** an Information Producer and Information Consumer.
+  * An **Information Producer** is software that sends information to another system.
+  * An **Information Consumer** is software that receives information from another system.
+  * The **Information Producer** and **Information Consumer** distinction is based on information flows.
+  * Note that **a single piece of software can be both** an Information Producer and Information Consumer.
 
 Two scenarios are illustrated in attempt to clarify the information above:
 
 * Scenario: A **TAXII Client** connects to a **TAXII Server** to send information (TAXII Inbox Service): 
- * The **TAXII Client** is an **Information Producer**.
- * The **TAXII Server** is an **Information Consumer**.
+  * The **TAXII Client** is an **Information Producer**.
+  * The **TAXII Server** is an **Information Consumer**.
 * Scenario: A **TAXII Client** connects to a **TAXII Server** to request information (TAXII Poll Service): 
- * The **TAXII Client** is an **Information Consumer**.
- * The **TAXII Server** is an **Information Producer**.
+  * The **TAXII Client** is an **Information Consumer**.
+  * The **TAXII Server** is an **Information Producer**.
 
 
 ## TAXII 1.1 Discovery Service

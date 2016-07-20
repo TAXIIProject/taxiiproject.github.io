@@ -13,18 +13,18 @@ title: TAXII Releases
 ### Specification Versioning
 **Note: This information applies to TAXII 1.0 and TAXII 1.1. This does not apply to OASIS Versions of TAXII**
 
-The version numbers in all TAXII Specifications are formatted as: ‘Major.Minor.Update’. The Update value may be omitted if it is 0.
+The version numbers in all TAXII Specifications are formatted as: 'Major.Minor.Update'. The Update value may be omitted if it is 0.
 
-* **Major Version — A major release is for adding features that require breaking backward compatibility with previous versions or represent fundamental changes to concepts. For a major release, the MAJOR component is incremented by one and the MINOR and UPDATE components are set to zero.
-* **Minor Version — A minor release is for adding features that do not break backward compatibility with previous versions. For a minor release, the MINOR component is incremented by one and the UPDATE component is set to zero.
-* **Update Version — An update release may only be initiated to address critical defects that affect usability. Fixes may break backward compatibility if necessary. New functionality outside of what was intended in the previous MAJOR.MINOR release is not permitted. However, once an update release is agreed to, other non-critical fixes and clarifications may be addressed. When an update version change is made, the UPDATE component is incremented by one.
+* **Major Version** — A major release is for adding features that require breaking backward compatibility with previous versions or represent fundamental changes to concepts. For a major release, the MAJOR component is incremented by one and the MINOR and UPDATE components are set to zero.
+* **Minor Version** — A minor release is for adding features that do not break backward compatibility with previous versions. For a minor release, the MINOR component is incremented by one and the UPDATE component is set to zero.
+* **Update Version** — An update release may only be initiated to address critical defects that affect usability. Fixes may break backward compatibility if necessary. New functionality outside of what was intended in the previous MAJOR.MINOR release is not permitted. However, once an update release is agreed to, other non-critical fixes and clarifications may be addressed. When an update version change is made, the UPDATE component is incremented by one.
 
 A particular release of TAXII as a whole pins the following:
 
 * The Major, Minor, and Update values of the TAXII Services Specification. The version of this document is always identical to the version of the TAXII release it supports.
 * A list of message and protocol binding specifications and their versions which are compatible with the indicated TAXII Services Specification.
- * It is possible that this list of message and binding specifications may grow within a particular release of TAXII as new binding specifications are defined.
- * It is possible (although unlikely) that revisions of a particular protocol or message binding specification may be defined within a single TAXII release. If this happens, the two versions of the given binding are both considered to be valid bindings under the given TAXII release, although the later revision will be considered preferable.
+  * It is possible that this list of message and binding specifications may grow within a particular release of TAXII as new binding specifications are defined.
+  * It is possible (although unlikely) that revisions of a particular protocol or message binding specification may be defined within a single TAXII release. If this happens, the two versions of the given binding are both considered to be valid bindings under the given TAXII release, although the later revision will be considered preferable.
 
  
 ### Backwards Compatibility in TAXII

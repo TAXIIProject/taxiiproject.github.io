@@ -23,7 +23,7 @@ no_in_page_title: true
 <div class="row">
   <div class="col-md-4 text-center">
     <h2>Get Involved</h2>
-        <p><a href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=cti">Join the OASIS TC</a> to help build this growing, open-source industry effort. <a href="http://stixproject.github.io/supporters/">See who's already</a> using TAXII.</p>
+        <p><a href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=cti">Join the OASIS TC</a> to help build this growing, open-source industry effort. <a href="https://wiki.oasis-open.org/cti/cti-interoperability">See who's already</a> using TAXII.</p>
         <p>Follow the <a href="/taxii2/">TAXII 2</a> discussion!</p>
   </div>
   <div class="col-md-4 text-center">
@@ -32,6 +32,6 @@ no_in_page_title: true
 </div>
   <div class="col-md-4 text-center">
     <h2>Follow Us</h2>
-    <p><a href="http://stixproject.tumblr.com/">Follow our blog</a> to get latest STIX news straight from the source.</p>
+    <p><a href="http://stixproject.tumblr.com/">Follow our blog</a> to get latest TAXII news straight from the source.</p>
   </div>
 </div>

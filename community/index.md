@@ -30,13 +30,6 @@ Organizations and individuals who are not OASIS CTI TC members may provide comme
 * [Subscribe to submit a comment](http://www.oasis-open.org/committees/comments/form.php?wg_abbrev=cti)
 * [Archive](https://lists.oasis-open.org/archives/cti-comment/)
 
-## Test Server
-The TAXII Test Server is a proof-of-concept deployment of TAXII that enables testing of TAXII 1.1 capabilities. 
-The TAXII Test Server demonstrates one way in which TAXII can be implemented and architected. Many other configurations, architectures, 
-implementations, and deployments of TAXII are possible. More information can be found on the TAXII Test Server's home page.
-
-The TAXII Test Server is available at [taxiitest.mitre.org](http://taxiitest.mitre.org/)
-
 ## TAXII Supporters
 A growing list of products and open source projects using [TAXII](http://taxiiproject.github.io/), [STIX](http://stixproject.github.io/), and [CybOX](http://cyboxproject.github.io/).
 

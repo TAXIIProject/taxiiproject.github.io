@@ -7,10 +7,6 @@ no_in_page_title: true
 
 <h2><strong>Trusted Automated eXchange of Indicator Information (TAXII™)</strong></h2>
 
-<div class="alert alert-warning" role="alert">
-  TAXII 2.0 documentation is available <a href="https://oasis-open.github.io/cti-documentation/" class="alert-link">here</a>. This site contains archived TAXII documentation. TAXII is maintained by the <a href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=cti" class="alert-link"> OASIS CTI TC</a>.
-</div>
-
 <div class="jumbotron">
   <p>Regardless of whether you're an analyst, developer, or manager, we have tutorials, walkthroughs, and exercises to help you become familiar with TAXII.</p>
   <p><a class="btn btn-primary btn-lg" role="button" href="/getting-started">Get Started »</a></p>

@@ -1,9 +1,11 @@
 ---
-title: About TAXII
+title: About TAXII (Archive)
 layout: flat
 ---
 
-[Trusted Automated eXchange of Indicator Information (TAXII™)](/releases) is a free and open transport mechanism that standardizes the automated exchange of cyber threat information. 
+[Trusted Automated eXchange of Indicator Information (TAXII™)](https://oasis-open.github.io/cti-documentation/) is a free and open transport mechanism that standardizes the automated exchange of cyber threat information. 
+
+This TAXII 1.x website has been archived. Go to the [TAXII 2.0 website](https://oasis-open.github.io/cti-documentation/).
 
 
 ### Impetus
@@ -13,7 +15,7 @@ By understanding adversaries’ behavior against a range of targets over a perio
 
 TAXII empowers organizations to share situational awareness about threats with the partners they choose, while leveraging existing relationships and systems.
 
-> TAXII is the preferred exchange mechanism for [Structured Threat Information eXpression (STIX™)](https://stixproject.github.io).
+> TAXII is the preferred exchange mechanism for [Structured Threat Information eXpression (STIX™)](https://oasis-open.github.io/cti-documentation/).
 
 ### Goals 
 - Enable timely and secure sharing of threat information in cyber defender communities.
@@ -85,7 +87,7 @@ Some shortcuts:
 
 [Developer Resources](/developers) - The central location for development of the specifications, tools, and documentation (including this site). 
 
-[STIX/TAXII Supporters](http://stixproject.github.io/supporters) - A growing list of products, services, and sharing communities using TAXII and STIX. 
+[STIX/TAXII Supporters](https://wiki.oasis-open.org/cti/Products) - A list of products and open source projects using TAXII and STIX. 
 
 ## Frequently Asked Questions
 
@@ -97,15 +99,18 @@ TAXII is not a specific information sharing initiative, and it does not define t
 Instead, TAXII empowers organizations to achieve improved situational awareness about emerging threats, and enables organizations to easily share the information they choose with the partners they choose, while leveraging existing relationships and systems.
 
 #### Where can I get TAXII?
-See [TAXII Releases](/releases/).
+
+The current release is [TAXII Version 2.0](https://oasis-open.github.io/cti-documentation/), which is available on the [TAXII 2.0 website](https://oasis-open.github.io/cti-documentation/).
+
+An archive of [previous releases](/releases/) is hosted on this website.
 
 #### How is TAXII licensed?
 See the [Terms of Use](/legal/).
 
 #### Who is using TAXII?
-[Many organizations](http://stixproject.github.io/supporters) have announced support for TAXII and STIX, and are listed on our [STIX/TAXII Supporters](http://stixproject.github.io/supporters) page on the STIX website. Please use our [submission form](http://goo.gl/forms/jKQH7a6TfW) to request that your organization’s products and services be added to the list.
+The most up-to-date “STIX and TAXII Supporters” lists are now available on the OASIS website for both [Products](https://wiki.oasis-open.org/cti/Products) and [Open Source Projects](https://wiki.oasis-open.org/cti/Open%20Source%20Projects).
 
-Our [STIX/TAXII Blog](http://stixproject.tumblr.com/) also lists press releases and other vendor announcements.
+A [registration form](https://www.surveymonkey.com/r/oasis-cti-tc-supporter-registration) is available from the OASIS CTI TC to request inclusion on the “STIX/TAXII Supporters” lists hosted by the CTI TC.
 
 #### What can I do with TAXII?
 TAXII implementations enable secure, consistent, and automated exchange of cyber threat information. TAXII services can be used to support a wide range of sharing models and community requirements. With standardized services, messages, and message exchanges, TAXII implementations facilitate automation and eliminate the need for multiple, custom, point-to-point exchange implementations. TAXII simplifies and speeds cyber threat information exchange.
@@ -114,7 +119,7 @@ TAXII implementations enable secure, consistent, and automated exchange of cyber
 At present, TAXII defines an XML data format and HTTP/HTTPS message protocols. Details can be found in the TAXII XML Message Binding Specification and the TAXII HTTP Protocol Binding Specification. Future expansion to other protocols and message formats is possible, depending on community demand. The TAXII specifications are written in a modular fashion to accommodate multiple message formats and message protocols. Due to community interest and widespread use, XML and HTTP/HTTPS were selected as the initial TAXII message format and Specifications.
 
 #### Can I use TAXII to share indicator lists? If so, how?
-TAXII implementations can share any content as long as it can be represented in a TAXII Message. Use of [STIX](https://stixproject.github.io/) is recommended to capture indicator list (or other cyber threat) data for seamless sharing through TAXII.
+TAXII implementations can share any content as long as it can be represented in a TAXII Message. Use of [STIX](https://oasis-open.github.io/cti-documentation/) is recommended to capture indicator list (or other cyber threat) data for seamless sharing through TAXII.
 
 #### How do you communicate available TAXII services and their use?
 Available TAXII services and their use can be communicated via the TAXII Discovery Service. The Discovery Service provides a requester with a list of TAXII Services and how these Services can be invoked. Specific details can be found in the TAXII Services Specification.
@@ -131,10 +136,7 @@ In the XML binding specification an element might be required under some circums
 ## Relationships to Other Efforts
 
 #### STIX
-[Structured Threat Information eXpression (STIX™)](http://stixproject.github.io/) is a structured language for describing cyber threat information so it can be shared, stored, and analyzed in a consistent manner. STIX is one payload that TAXII can convey. STIX represents cyber threat information in a standardized and structured manner. STIX characterizes what is being shared, while TAXII defines how the STIX payload is shared.
-
-#### CybOX
-[Cyber Observable eXpression (CybOX™)](https://cyboxproject.github.io/) is a structured language for describing elements that are observable within the cyber operational environment. STIX is one payload that TAXII can convey, and STIX uses CybOX to represent cyber observables.
+[Structured Threat Information eXpression (STIX™)](https://oasis-open.github.io/cti-documentation/) is a structured language for describing cyber threat information so it can be shared, stored, and analyzed in a consistent manner. STIX is one payload that TAXII can convey. STIX represents cyber threat information in a standardized and structured manner. STIX characterizes what is being shared, while TAXII defines how the STIX payload is shared.
 
 #### MAEC
 [Malware Attribute Enumeration and Characterization (MAEC™)](http://maecproject.github.io/) is a structured language for encoding and communicating high-fidelity information about malware based upon attributes such as behaviors, artifacts, and attack patterns. STIX is one payload that TAXII can convey, and STIX can describe malware using MAEC.

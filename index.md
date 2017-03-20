@@ -5,7 +5,7 @@ tagline: Enabling Cyber Threat Information Exchange
 no_in_page_title: true
 ---
 
-<h2><strong>Trusted Automated eXchange of Indicator Information (TAXII™) 1.x Archive Website</strong></h2>
+<h1>Trusted Automated eXchange of Indicator Information (TAXII™) 1.x Archive Website</h1>
 
 <h4>Go to the <a href="https://oasis-open.github.io/cti-documentation/">TAXII 2.0 website</a>.</h4>
 

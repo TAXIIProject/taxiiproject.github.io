@@ -1,7 +1,10 @@
 ---
 layout: flat
-title: TAXII Releases
+title: TAXII Releases (Archive)
 ---
+
+
+This TAXII 1.x website has been archived. For the latest release, go to the [TAXII 2.0 website](https://oasis-open.github.io/cti-documentation/).
 
 |Release|Release Date|Link|
 |-------|------------|---|

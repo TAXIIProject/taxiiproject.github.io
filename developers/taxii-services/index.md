@@ -3,6 +3,8 @@ layout: flat
 title: taxii-services
 ---
 
+**WARNING**: This library is no longer maintained. If you need an open source TAXII 1.X implementation, please see [this list of other libraries](https://wiki.oasis-open.org/cti/Open%20Source%20Projects>).
+
 Python Django library for [TAXII](http://taxiiproject.github.io/releases/).
 
 This library:
@@ -25,4 +27,4 @@ This library:
 
 ### Source Code
 
-`taxii-services` development occurs on [GitHub](https://github.com/TAXIIProject/django-taxii-services).
+`taxii-services` source code can be found on [GitHub](https://github.com/TAXIIProject/django-taxii-services).

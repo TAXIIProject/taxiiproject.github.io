@@ -3,6 +3,8 @@ layout: flat
 title: YETI
 ---
 
+**WARNING**: This tool uses an older, insecure version of Django, but is no longer maintained. If you need an open source TAXII 1.X implementation, please see [this list of other libraries](https://wiki.oasis-open.org/cti/Open%20Source%20Projects>).
+
 An example [TAXII](http://taxiiproject.github.io/releases/) server.
 
 YETI:
@@ -23,4 +25,4 @@ YETI:
 
 ### Source Code
 
-`YETI` development occurs on [GitHub](https://github.com/TAXIIProject/yeti).
+`YETI` source code can be found on [GitHub](https://github.com/TAXIIProject/yeti).
